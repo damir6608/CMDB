@@ -16,7 +16,8 @@ namespace Shovel.WebAPI
         [ProducesResponseType(200)]
         public async Task<ActionResult> SyncPerformacne()
         {
-            return Ok(await _performanceSystemSynchronizeService.GetData());
+            await _performanceSystemSynchronizeService.GetData();
+            return Ok();
         }
     }
 }

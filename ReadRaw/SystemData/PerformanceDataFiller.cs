@@ -50,8 +50,8 @@ namespace ReadRaw.SystemData
                 }
             }
 
-            var gcMemoryInfo = GC.GetGCMemoryInfo();
-            var installedMemory = gcMemoryInfo.TotalAvailableMemoryBytes;
+            GCMemoryInfo gcMemoryInfo = GC.GetGCMemoryInfo();
+            Int64 installedMemory = gcMemoryInfo.TotalAvailableMemoryBytes;
             performanceModel.RAMAvailable = installedMemory;
 
             return performanceModel;

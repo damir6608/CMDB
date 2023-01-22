@@ -10,7 +10,7 @@ namespace ReadRaw // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            var rc = HostFactory.Run(x =>
+            TopshelfExitCode rc = HostFactory.Run(x =>
             {
                 x.Service<Scheduler>(s =>
                 {
@@ -23,7 +23,7 @@ namespace ReadRaw // Note: actual namespace depends on the project name.
                 x.SetDisplayName(ConfigurationManager.AppSettings["ServiceDisplayName"]);
                 x.SetServiceName(ConfigurationManager.AppSettings["ServiceName"]);
             });
-            var exitCode = (int)Convert.ChangeType(rc, rc.GetTypeCode());
+            Int32 exitCode = (int)Convert.ChangeType(rc, rc.GetTypeCode());
             Environment.ExitCode = exitCode;
         }
     }

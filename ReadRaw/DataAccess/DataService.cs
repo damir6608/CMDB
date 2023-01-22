@@ -17,9 +17,9 @@ namespace ReadRaw.DataAccess
     {
         public static void InsertPerformanceData()
         {
-            using (var db = new LiteDatabase(@$"{new DirectoryInfo(@"..\..\..\..\").FullName}\LiteDB\applog.db"))
+            using (LiteDatabase db = new LiteDatabase(@$"{new DirectoryInfo(@"..\..\..\..\").FullName}\LiteDB\applog.db"))
             {
-                var col = db.GetCollection<PerformanceModel>("performance");
+                ILiteCollection<PerformanceModel> col = db.GetCollection<PerformanceModel>("performance");
 
                 PerformanceModel performanceData = PerformanceDataFiller.GetPerformanceCounter();
 
@@ -32,9 +32,9 @@ namespace ReadRaw.DataAccess
         }
         public static void InsertApplicationData()
         {
-            using (var db = new LiteDatabase(@$"{new DirectoryInfo(@"..\..\..\..\").FullName}\LiteDB\applog.db"))
+            using (LiteDatabase db = new LiteDatabase(@$"{new DirectoryInfo(@"..\..\..\..\").FullName}\LiteDB\applog.db"))
             {
-                var col = db.GetCollection<ApplicationSystemModel>("application");
+                ILiteCollection<ApplicationSystemModel> col = db.GetCollection<ApplicationSystemModel>("application");
 
                 List<ApplicationSystemModel> performanceData = ApplicationSystemFiller.GetApplicationSystems();
 

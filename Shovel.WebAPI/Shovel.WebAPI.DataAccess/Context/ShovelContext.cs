@@ -33,9 +33,9 @@ public partial class ShovelContext : DbContext
 
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Database=shovel;Username=postgres;Password=postgres");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseNpgsql("Host=localhost;Database=shovel;Username=postgres;Password=postgres");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -77,6 +77,7 @@ public partial class ShovelContext : DbContext
                 .HasColumnName("startinfofilename");
             entity.Property(e => e.Starttime).HasColumnName("starttime");
             entity.Property(e => e.Synctime).HasColumnName("synctime");
+            entity.Property(e => e.InsertDate).HasColumnName("insertdate");
             entity.Property(e => e.Threadscount).HasColumnName("threadscount");
             entity.Property(e => e.Workingset64).HasColumnName("workingset64");
 

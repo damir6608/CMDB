@@ -44,6 +44,8 @@ public partial class ApplicationSystem
 
     public DateTime? Synctime { get; set; }
 
+    public DateTime? InsertDate { get; set; }
+
     public int? Serverid { get; set; }
 
     public virtual Server? Server { get; set; }

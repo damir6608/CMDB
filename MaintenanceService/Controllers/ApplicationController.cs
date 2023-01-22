@@ -6,19 +6,19 @@ namespace MaintenanceService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PerformanceController : ControllerBase
+    public class ApplicationController : ControllerBase
     {
-        private readonly ILogger<PerformanceController> _logger;
+        private readonly ILogger<ApplicationController> _logger;
 
-        public PerformanceController(ILogger<PerformanceController> logger)
+        public ApplicationController(ILogger<ApplicationController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetPerformanceData")]
-        public IEnumerable<PerformanceModel> Get([FromQuery] string[] queryParams)
+        [HttpGet(Name = "GetApplicationData")]
+        public IEnumerable<ApplicationSystemModel> Get([FromQuery] string[] queryParams)
         {
-            return new PerformanceService().GetPerformanceData();
+            return new ApplicationService().GetApplicationData();
         }
     }
 }

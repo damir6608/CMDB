@@ -5,11 +5,13 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI", "Shovel.WebAPI.csproj", "{46FEC996-7E61-4743-A663-40465CF48947}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shovel.WebAPI.DataAccess", "Shovel.WebAPI.DataAccess\Shovel.WebAPI.DataAccess.csproj", "{6DE5A5A4-C8EF-4133-9887-B303CE5D96FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.DataAccess", "Shovel.WebAPI.DataAccess\Shovel.WebAPI.DataAccess.csproj", "{6DE5A5A4-C8EF-4133-9887-B303CE5D96FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shovel.WebAPI.Services", "Shovel.WebAPI.Services\Shovel.WebAPI.Services.csproj", "{3F31A766-97E2-483F-BEED-0C60CF9A8245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.Services", "Shovel.WebAPI.Services\Shovel.WebAPI.Services.csproj", "{3F31A766-97E2-483F-BEED-0C60CF9A8245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shovel.WebAPI.Abstractions", "Shovel.WebAPI.Abstractions\Shovel.WebAPI.Abstractions.csproj", "{05A9686E-1B8E-454E-988B-9F37688E4528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.Abstractions", "Shovel.WebAPI.Abstractions\Shovel.WebAPI.Abstractions.csproj", "{05A9686E-1B8E-454E-988B-9F37688E4528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shovel.WebAPI.QuartzJobsAndTriggers", "Shovel.WebAPI.QuartzJobsAndTriggers\Shovel.WebAPI.QuartzJobsAndTriggers.csproj", "{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{05A9686E-1B8E-454E-988B-9F37688E4528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A9686E-1B8E-454E-988B-9F37688E4528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A9686E-1B8E-454E-988B-9F37688E4528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
