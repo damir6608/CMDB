@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiteDB" Version="5.0.15" />
     <PackageReference Include="Quartz" Version="3.5.0" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="System.Management" Version="7.0.0" />
     <PackageReference Include="Topshelf" Version="4.3.0" />
   </ItemGroup>

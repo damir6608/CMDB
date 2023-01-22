@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Shovel.WebAPI.Abstractions\**" />
+    <Compile Remove="Shovel.WebAPI.DataAccess\**" />
+    <Compile Remove="Shovel.WebAPI.Services\**" />
+    <Content Remove="Shovel.WebAPI.Abstractions\**" />
+    <Content Remove="Shovel.WebAPI.DataAccess\**" />
+    <Content Remove="Shovel.WebAPI.Services\**" />
+    <EmbeddedResource Remove="Shovel.WebAPI.Abstractions\**" />
+    <EmbeddedResource Remove="Shovel.WebAPI.DataAccess\**" />
+    <EmbeddedResource Remove="Shovel.WebAPI.Services\**" />
+    <None Remove="Shovel.WebAPI.Abstractions\**" />
+    <None Remove="Shovel.WebAPI.DataAccess\**" />
+    <None Remove="Shovel.WebAPI.Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Shovel.WebAPI.DataAccess\Shovel.WebAPI.DataAccess.csproj" />
+    <ProjectReference Include="Shovel.WebAPI.Services\Shovel.WebAPI.Services.csproj" />
+  </ItemGroup>
+
+</Project>

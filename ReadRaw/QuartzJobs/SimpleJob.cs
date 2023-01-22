@@ -1,11 +1,6 @@
 ﻿using Quartz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ReadRaw
+namespace ReadRaw.QuartzJobs
 {
     internal class SimpleJob : IJob
     {
@@ -16,6 +11,9 @@ namespace ReadRaw
 
         public void Run()
         {
+            DataAccess.DataService.InsertPerformanceData();
+            DataAccess.DataService.InsertApplicationData();
+
             Console.WriteLine("Logging at :- " + DateTime.Now);
         }
     }
