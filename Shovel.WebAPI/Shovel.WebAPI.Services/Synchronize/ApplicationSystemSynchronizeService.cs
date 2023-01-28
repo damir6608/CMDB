@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Shovel.WebAPI.Abstractions.Extensions;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Synchronize.Interfaces;
 using System;
@@ -21,7 +23,7 @@ namespace Shovel.WebAPI.Services.Synchronize
             _factory = (IHttpClientFactory)serviceProvider.GetService(typeof(IHttpClientFactory));
             _shovelContext = shovelContext;
         }
-        public async Task<List<ApplicationSystem>> GetData()
+        async Task<List<ApplicationSystem>> IApplicationSystemSynchronizeService.GetData()
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             var perfrormance = new List<ApplicationSystem>();
@@ -32,21 +34,27 @@ namespace Shovel.WebAPI.Services.Synchronize
                 using (var client = _factory.CreateClient())
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
-                    var responce = await client.GetAsync("Application");
+
+                    var dateByLastSync = DateTime.Now.AddHours(-3);
+                    var serDate = JsonConvert.SerializeObject(dateByLastSync);
+                    var param = $"?date={dateByLastSync}";
+
+                    var responce = await client.GetAsync($"Application{param}");
                     var stringData = await responce.Content.ReadAsStringAsync();
-                    var performanceResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
-                    performanceResult = performanceResult ?? throw new ArgumentNullException();
-                    AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+                    var applicationResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
+
+                    applicationResult = applicationResult ?? new List<ApplicationSystem>();
+
                     var show = _shovelContext.Set<ApplicationSystem>();
 
-                    performanceResult.ForEach(i => { i.Synctime = SyncTime; i.Serverid = server.Id; });
+                    applicationResult.ForEach(i => { i.Synctime = SyncTime; i.Serverid = server.Id; });
 
-                    show.AddRange(performanceResult);
+                    show.AddRange(applicationResult);
 
                     _shovelContext.SaveChanges();
 
 
-                    perfrormance.AddRange(performanceResult);
+                    perfrormance.AddRange(applicationResult);
                 }
             }
             return perfrormance.ToList();

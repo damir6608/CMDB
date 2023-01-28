@@ -16,9 +16,9 @@ namespace MaintenanceService.Controllers
         }
 
         [HttpGet(Name = "GetApplicationData")]
-        public IEnumerable<ApplicationSystemModel> Get([FromQuery] string[] queryParams)
+        public IEnumerable<ApplicationSystemModel> Get([FromQuery(Name = "date")] DateTime lastSyncDate)
         {
-            return new ApplicationService().GetApplicationData();
+            return new ApplicationService().GetApplicationData(lastSyncDate);
         }
     }
 }

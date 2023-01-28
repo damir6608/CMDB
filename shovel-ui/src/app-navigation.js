@@ -5,17 +5,22 @@ export default [
     icon: "home"
   },
   {
-    text: "Examples",
+    text: "Profile",
+    path: "/profile",
+    icon: "card"
+  },
+  {
+    text: "Data",
     icon: "folder",
     items: [
       {
-        text: "Profile",
-        path: "/profile"
+        text: "Performance",
+        path: "/performance"
       },
       {
-        text: "Tasks",
-        path: "/tasks"
+        text: 'Application',
+        path: '/application-page',
       }
     ]
-  }
+  },
   ];

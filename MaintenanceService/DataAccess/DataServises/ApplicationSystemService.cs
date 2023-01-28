@@ -8,7 +8,7 @@ namespace MaintenanceService.DataAccess.DataServises
     {
         private string _dbLocation = @$"{new DirectoryInfo(@"..\").FullName}\LiteDB\applog.db";
 
-        public IEnumerable<ApplicationSystemModel> GetApplicationData()
+        public IEnumerable<ApplicationSystemModel> GetApplicationData(DateTime lastSyncDate)
         {
             using (var db = new LiteDatabase(_dbLocation))
             {
@@ -16,7 +16,7 @@ namespace MaintenanceService.DataAccess.DataServises
 
                 col.EnsureIndex(x => x.InsertDate);
 
-                var results = col.FindAll().ToList();
+                var results = col.FindAll().Where(i => i.InsertDate > lastSyncDate).ToList();
 
                 return results;
             }

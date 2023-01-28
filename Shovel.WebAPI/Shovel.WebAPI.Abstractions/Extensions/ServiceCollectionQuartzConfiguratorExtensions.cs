@@ -3,6 +3,7 @@ using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace Shovel.WebAPI.Abstractions.Extensions
 {
     public static class ServiceCollectionQuartzConfiguratorExtensions
     {
+        public static string CronExpression { get; set; } = string.Empty;
         public static void AddJobAndTrigger<T>(
             this IServiceCollectionQuartzConfigurator quartz,
             IConfiguration config)
@@ -27,6 +29,8 @@ namespace Shovel.WebAPI.Abstractions.Extensions
             {
                 throw new Exception($"No Quartz.NET Cron schedule found for job in configuration at {configKey}");
             }
+
+            CronExpression = cronSchedule;
 
             // register the job as before
             var jobKey = new JobKey(jobName);

@@ -163,7 +163,7 @@
 }
 .dx-theme-material-typography .dx-swatch-additional a,
 .dx-theme-material-typography.dx-swatch-additional a {
-  color: #ff5722;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-icon-add,
 .dx-swatch-additional .dx-icon-addcolumnleft,
@@ -1777,7 +1777,7 @@
   font-style: normal;
 }
 .dx-swatch-additional .dx-field-value.dx-attention {
-  color: #f44336;
+  color: #17bfa3;
   padding: 21px 10px 20px 32px;
   position: relative;
 }
@@ -1792,7 +1792,7 @@
   line-height: 23px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #f44336;
+  background-color: #17bfa3;
   color: rgba(0,0,0,.87);
   content: "!";
   border-radius: 50%;
@@ -1888,7 +1888,7 @@
   font-family: "dx.material.orange-dark";
 }
 .dx-swatch-additional .dx-theme-accent-as-text-color {
-  color: #ff5722!important;
+  color: #17bfa3!important;
 }
 .dx-swatch-additional .dx-theme-text-color {
   color: #fff!important;
@@ -1900,8 +1900,8 @@
   color: #515159!important;
 }
 .dx-swatch-additional .dx-theme-accent-as-background-color {
-  background-color: #ff5722!important;
-  fill: #ff5722!important;
+  background-color: #17bfa3!important;
+  fill: #17bfa3!important;
 }
 .dx-swatch-additional .dx-theme-text-color-as-background-color {
   background-color: #fff!important;
@@ -1916,7 +1916,7 @@
   fill: #515159!important;
 }
 .dx-swatch-additional .dx-theme-accent-as-border-color {
-  border-color: #ff5722!important;
+  border-color: #17bfa3!important;
 }
 .dx-swatch-additional .dx-theme-text-color-as-border-color {
   border-color: #fff!important;
@@ -2679,7 +2679,7 @@
 }
 .dx-swatch-additional .dx-button.dx-button-default {
   border-radius: 4px;
-  background-color: #ff5722;
+  background-color: #17bfa3;
   color: rgba(0,0,0,.87);
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4);
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -2718,7 +2718,7 @@
 }
 .dx-swatch-additional .dx-button.dx-button-danger {
   border-radius: 4px;
-  background-color: #f44336;
+  background-color: #17bfa3;
   color: rgba(0,0,0,.87);
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4);
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -2893,12 +2893,12 @@
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-default {
   background-color: transparent;
-  color: #ff5722;
+  color: #17bfa3;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-default .dx-icon {
-  color: #ff5722;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-default.dx-state-focused,
 .dx-swatch-additional .dx-button-mode-text.dx-button-default.dx-state-hover {
@@ -2927,12 +2927,12 @@
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-danger {
   background-color: transparent;
-  color: #f44336;
+  color: #17bfa3;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-danger .dx-icon {
-  color: #f44336;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-text.dx-button-danger.dx-state-focused,
 .dx-swatch-additional .dx-button-mode-text.dx-button-danger.dx-state-hover {
@@ -3030,13 +3030,13 @@
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-default {
   background-color: transparent;
-  color: #ff5722;
+  color: #17bfa3;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #ff5722;
+  border: 1px solid #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-default .dx-icon {
-  color: #ff5722;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-default.dx-state-focused,
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-default.dx-state-hover {
@@ -3065,13 +3065,13 @@
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-danger {
   background-color: transparent;
-  color: #f44336;
+  color: #17bfa3;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #f44336;
+  border: 1px solid #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-danger .dx-icon {
-  color: #f44336;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-danger.dx-state-focused,
 .dx-swatch-additional .dx-button-mode-outlined.dx-button-danger.dx-state-hover {
@@ -3253,7 +3253,7 @@
 }
 .dx-swatch-additional .dx-checkbox-checked .dx-checkbox-icon {
   color: #363640;
-  background-color: #ff5722;
+  background-color: #17bfa3;
   border: none;
   font: 16px/1em DXIcons;
   text-align: center;
@@ -3276,7 +3276,7 @@
   margin-right: -.5em;
 }
 .dx-swatch-additional .dx-checkbox-indeterminate .dx-checkbox-icon {
-  background-color: #ff5722;
+  background-color: #17bfa3;
   color: #363640;
   border: none;
   font: 20px/1em DXIcons;
@@ -3300,7 +3300,7 @@
   margin-right: -.5em;
 }
 .dx-swatch-additional .dx-invalid .dx-checkbox-icon {
-  border: 2px solid #f44336;
+  border: 2px solid #17bfa3;
 }
 .dx-swatch-additional .dx-invalid.dx-state-focused .dx-checkbox-icon::after {
   background-color: rgba(244,67,54,.1);
@@ -3741,7 +3741,7 @@
 .dx-swatch-additional .dx-badge {
   padding: 3px 9px;
   border-radius: 14px;
-  background-color: #ff5722;
+  background-color: #17bfa3;
   color: rgba(0,0,0,.87);
   font-size: 12px;
   margin-left: 4px;
@@ -3845,7 +3845,7 @@
 }
 .dx-swatch-additional .dx-tab.dx-tab-selected,
 .dx-swatch-additional .dx-tab.dx-tab-selected .dx-icon {
-  color: #ff5722;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-tab.dx-tab-selected::before {
   content: "";
@@ -3854,7 +3854,7 @@
   height: 2px;
   left: 0;
   right: 0;
-  background-color: #ff5722;
+  background-color: #17bfa3;
 }
 .dx-swatch-additional .dx-tab-content,
 .dx-swatch-additional .dx-tab-text {
@@ -4035,11 +4035,11 @@
   line-height: 1.2857;
 }
 .dx-swatch-additional .dx-validationsummary-item {
-  color: #f44336;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-invalid-message > .dx-overlay-content {
   background-color: transparent;
-  color: #f44336;
+  color: #17bfa3;
   padding: 6px 0 0;
 }
 .dx-swatch-additional .dx-editor-filled .dx-invalid-message > .dx-overlay-content,
@@ -4232,12 +4232,12 @@
 }
 .dx-swatch-additional .dx-texteditor.dx-state-focused .dx-texteditor-label,
 .dx-swatch-additional .dx-texteditor.dx-state-focused.dx-state-hover .dx-texteditor-label {
-  color: #ff5722;
+  color: #17bfa3;
   font-size: 12px;
 }
 .dx-swatch-additional .dx-texteditor.dx-state-focused.dx-invalid .dx-texteditor-label,
 .dx-swatch-additional .dx-texteditor.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label {
-  color: #f44336;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-texteditor.dx-state-active,
 .dx-swatch-additional .dx-texteditor.dx-state-focused {
@@ -4245,7 +4245,7 @@
 }
 .dx-swatch-additional .dx-texteditor.dx-state-active::before,
 .dx-swatch-additional .dx-texteditor.dx-state-focused::before {
-  border-bottom: 2px solid #ff5722;
+  border-bottom: 2px solid #17bfa3;
   -webkit-transform: scale(1);
   transform: scale(1);
   -webkit-transition: -webkit-transform .6s cubic-bezier(.4, 0, .02, 1);
@@ -4410,12 +4410,12 @@
   color: rgba(255,255,255,.5);
 }
 .dx-swatch-additional .dx-texteditor.dx-editor-outlined.dx-state-focused {
-  -webkit-box-shadow: inset 0 0 0 2px #ff5722;
-  box-shadow: inset 0 0 0 2px #ff5722;
+  -webkit-box-shadow: inset 0 0 0 2px #17bfa3;
+  box-shadow: inset 0 0 0 2px #17bfa3;
 }
 .dx-swatch-additional .dx-texteditor.dx-editor-outlined.dx-state-focused.dx-invalid {
-  -webkit-box-shadow: inset 0 0 0 2px #f44336;
-  box-shadow: inset 0 0 0 2px #f44336;
+  -webkit-box-shadow: inset 0 0 0 2px #17bfa3;
+  box-shadow: inset 0 0 0 2px #17bfa3;
 }
 .dx-swatch-additional .dx-texteditor.dx-editor-outlined.dx-invalid {
   -webkit-box-shadow: inset 0 0 0 1px rgba(244,67,54,.4);
@@ -4539,8 +4539,8 @@
 }
 .dx-swatch-additional .dx-invalid.dx-texteditor.dx-state-active::before,
 .dx-swatch-additional .dx-invalid.dx-texteditor.dx-state-focused::before {
-  border-top: 1px solid #f44336;
-  border-bottom: 1px solid #f44336;
+  border-top: 1px solid #17bfa3;
+  border-bottom: 1px solid #17bfa3;
 }
 .dx-swatch-additional .dx-invalid.dx-texteditor.dx-show-invalid-badge .dx-texteditor-input-container::after {
   pointer-events: none;
@@ -4553,7 +4553,7 @@
   line-height: 23px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #f44336;
+  background-color: #17bfa3;
   color: rgba(0,0,0,.87);
   content: "!";
   border-radius: 50%;
@@ -4669,7 +4669,7 @@
   margin-bottom: -1px;
 }
 .dx-swatch-additional .dx-invalid .dx-texteditor-label {
-  color: #f44336;
+  color: #17bfa3;
 }
 .dx-swatch-additional .dx-rtl .dx-texteditor-label {
   left: auto;
@@ -5145,8 +5145,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label {
   padding: 0 2px;
   height: 100%;
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset 2px 0 transparent,inset -2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset 2px 0 transparent,inset -2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset 2px 0 transparent,inset -2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset 2px 0 transparent,inset -2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused .dx-texteditor-label .dx-label span,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label span,
@@ -5206,8 +5206,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
@@ -5233,8 +5233,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-textarea .dx-texteditor-label .dx-label span,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-textarea .dx-texteditor-label .dx-label span,
@@ -5363,8 +5363,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-rtl .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-rtl .dx-texteditor-label .dx-label-after,
@@ -5414,8 +5414,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-invalid,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-invalid,
@@ -5497,8 +5497,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label {
   padding: 0 2px;
   height: 100%;
-  -webkit-box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset 2px 0 transparent,inset -2px 0 transparent;
-  box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset 2px 0 transparent,inset -2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset 2px 0 transparent,inset -2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset 2px 0 transparent,inset -2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label span,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label span,
@@ -5558,8 +5558,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 transparent,inset 2px 0 #f44336;
-  box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 transparent,inset 2px 0 #f44336;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-after,
@@ -5585,8 +5585,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 #f44336,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 #f44336,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-invalid.dx-textarea .dx-texteditor-label .dx-label span,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-invalid.dx-textarea .dx-texteditor-label .dx-label span,
@@ -5715,8 +5715,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 #f44336,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 #f44336,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-invalid.dx-rtl .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-disabled.dx-state-focused.dx-state-hover.dx-invalid.dx-rtl .dx-texteditor-label .dx-label-after,
@@ -5766,8 +5766,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-state-hover.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-invalid .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-readonly.dx-textarea.dx-state-focused.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 transparent,inset 2px 0 #f44336;
-  box-shadow: inset 0 -2px #f44336,inset 0 2px #f44336,inset -2px 0 transparent,inset 2px 0 #f44336;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-hover,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-hover {
@@ -5910,8 +5910,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label {
   padding: 0 2px;
   height: 100%;
-  -webkit-box-shadow: inset 0 -1px #f44336,inset 0 1px #f44336,inset 1px 0 transparent,inset -1px 0 transparent;
-  box-shadow: inset 0 -1px #f44336,inset 0 1px #f44336,inset 1px 0 transparent,inset -1px 0 transparent;
+  -webkit-box-shadow: inset 0 -1px #17bfa3,inset 0 1px #17bfa3,inset 1px 0 transparent,inset -1px 0 transparent;
+  box-shadow: inset 0 -1px #17bfa3,inset 0 1px #17bfa3,inset 1px 0 transparent,inset -1px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-lookup-empty.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label span,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-texteditor-empty.dx-state-hover.dx-invalid .dx-texteditor-label .dx-label span {
@@ -6438,8 +6438,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label {
   height: 100%;
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px transparent,inset 2px 0 transparent,inset -2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px transparent,inset 2px 0 transparent,inset -2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px transparent,inset 2px 0 transparent,inset -2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px transparent,inset 2px 0 transparent,inset -2px 0 transparent;
   padding: 0 4px;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label span,
@@ -6474,8 +6474,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
@@ -6489,8 +6489,8 @@
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused .dx-texteditor-label .dx-label-before,
@@ -6556,8 +6556,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-before,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-before {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 #ff5722,inset 2px 0 transparent;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 #17bfa3,inset 2px 0 transparent;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused.dx-rtl .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused.dx-state-hover.dx-rtl .dx-texteditor-label .dx-label-after,
@@ -6583,8 +6583,8 @@
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused .dx-texteditor-label .dx-label-after,
 .dx-swatch-additional .dx-rtl .dx-editor-outlined.dx-texteditor-with-label.dx-textarea.dx-state-focused.dx-state-hover .dx-texteditor-label .dx-label-after {
-  -webkit-box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
-  box-shadow: inset 0 -2px #ff5722,inset 0 2px #ff5722,inset -2px 0 transparent,inset 2px 0 #ff5722;
+  -webkit-box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
+  box-shadow: inset 0 -2px #17bfa3,inset 0 2px #17bfa3,inset -2px 0 transparent,inset 2px 0 #17bfa3;
 }
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused.dx-invalid,
 .dx-swatch-additional .dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-state-focused.dx-state-hover.dx-invalid,
@@ -7217,7 +7217,7 @@
 .dx-swatch-additional .dx-loadindicator-segment-inner {
   position: relative;
   height: 100%;
-  border-color: #ff5722 #ff5722 transparent;
+  border-color: #17bfa3 #17bfa3 transparent;
   border-width: .12em;
   border-style: solid;
   -webkit-animation: none;

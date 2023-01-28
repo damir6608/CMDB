@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace Shovel.WebAPI.Models;
 
@@ -21,5 +23,6 @@ public partial class LogicalDrive
 
     public int? Performancesystemid { get; set; }
 
+    [JsonIgnore]
     public virtual PerformanceSystem? Performancesystem { get; set; }
 }

@@ -1,9 +1,10 @@
+import ApplicationPage from './views/application-page';
 import auth from "./auth";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "./views/home-page";
 import Profile from "./views/profile-page";
-import Tasks from "./views/tasks-page";
+import Performance from "./views/performance-page";
 import defaultLayout from "./layouts/side-nav-outer-toolbar";
 import simpleLayout from "./layouts/single-card";
 
@@ -32,13 +33,13 @@ const router = new createRouter({
       component: Profile
     },
     {
-      path: "/tasks",
-      name: "tasks",
+      path: "/performance",
+      name: "performance",
       meta: {
         requiresAuth: true,
         layout: defaultLayout
       },
-      component: Tasks
+      component: Performance
     },
     {
       path: "/login-form",
@@ -92,6 +93,15 @@ const router = new createRouter({
     {
       path: "/:pathMatch(.*)*",
       redirect: "/home"
+    }, 
+    {
+      path: "/application-page",
+      name: "application-page",
+      meta: {
+        requiresAuth: true,
+        layout: defaultLayout
+      },
+      component: ApplicationPage
     }
   ],
   history: createWebHashHistory()

@@ -1,3 +1,3 @@
 export default {
-  title: "Shovel Ui"
+  title: "Shovel UI"
 };

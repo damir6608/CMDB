@@ -16,9 +16,9 @@ namespace MaintenanceService.Controllers
         }
 
         [HttpGet(Name = "GetPerformanceData")]
-        public IEnumerable<PerformanceModel> Get([FromQuery] string[] queryParams)
+        public IEnumerable<PerformanceModel> Get([FromQuery(Name = "date")] DateTime lastSyncDate)
         {
-            return new PerformanceService().GetPerformanceData();
+            return new PerformanceService().GetPerformanceData(lastSyncDate);
         }
     }
 }
