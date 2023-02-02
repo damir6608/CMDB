@@ -12,6 +12,8 @@
         :column-hiding-enabled="true"
         :allow-column-resizing="true"
         column-resizing-mode="widget"
+        @selection-changed="onSelectionChanged"
+        :selection="{ mode: 'single' }"
     >
       <dx-paging :page-size="10" />
       <dx-pager :show-page-size-selector="true" :show-info="true" />
@@ -78,8 +80,17 @@ import DxDataGrid, {
   DxPager,
   DxPaging
 } from "devextreme-vue/data-grid";
+import router from "@/router";
 
 export default {
+  methods: {
+    onSelectionChanged({ selectedRowsData }) {
+      const datas = selectedRowsData[0];
+      console.log(datas.id);
+      let idRow = datas.id;
+      router.push({ path: '/application-details-page',  query: {id : idRow}})
+    },
+  },
   setup() {
     const dataSourceConfig = {
       store: {

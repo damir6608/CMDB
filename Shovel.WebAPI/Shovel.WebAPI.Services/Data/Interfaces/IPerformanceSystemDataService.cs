@@ -10,5 +10,6 @@ namespace Shovel.WebAPI.Services.Data.Interfaces
     public interface IPerformanceSystemDataService
     {
         public Task<List<PerformanceSystem>> GetPerformanceSystems();
+        public Task<PerformanceSystem> GetPerformanceSystemById(int id);
     }
 }

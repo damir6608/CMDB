@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shovel.WebAPI.Abstractions.Model.Response;
 using Shovel.WebAPI.Models;
+using Shovel.WebAPI.Services.Data;
 using Shovel.WebAPI.Services.Data.Interfaces;
 
 namespace Shovel.WebAPI
@@ -27,6 +28,13 @@ namespace Shovel.WebAPI
             res.TotalCount = applicationSystems.Count;
 
             return Ok(res);
+        }
+
+        [HttpGet("GetApplicationById/{id}")]
+        [ProducesResponseType(200)]
+        public async Task<ActionResult<PagedResult>> GetApplicationeById(int id)
+        {
+            return Ok(await _applicationSystemDataService.GetApplicationSystemById(id));
         }
     }
 }

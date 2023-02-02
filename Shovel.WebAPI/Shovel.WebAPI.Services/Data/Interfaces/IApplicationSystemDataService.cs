@@ -10,5 +10,6 @@ namespace Shovel.WebAPI.Services.Data.Interfaces
     public interface IApplicationSystemDataService
     {
         public Task<List<ApplicationSystem>> GetApplicationSystems();
+        public Task<ApplicationSystem> GetApplicationSystemById(int id);
     }
 }

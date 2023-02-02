@@ -34,11 +34,11 @@ namespace Shovel.WebAPI.Services.Synchronize
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
-                    var dateByLastSync = DateTime.Now.AddHours(-3);
+                    var dateByLastSync = DateTime.Now.AddMinutes(-10);
                     var serDate = JsonConvert.SerializeObject(dateByLastSync);
                     var param = $"?date={dateByLastSync}";
 
-                    var responce = await client.GetAsync($"Performance{dateByLastSync}");
+                    var responce = await client.GetAsync($"Performance{param}");
                     var stringData = await responce.Content.ReadAsStringAsync();
                     var performanceResult = JsonConvert.DeserializeObject<List<PerformanceSystem>>(stringData);
 

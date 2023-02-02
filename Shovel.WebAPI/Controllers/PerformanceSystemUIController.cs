@@ -19,7 +19,7 @@ namespace Shovel.WebAPI
 
         [HttpGet("GetAll")]
         [ProducesResponseType(200)]
-        public async Task<ActionResult<PagedResult>> SyncPerformacne([FromQuery] string[] queryParams)
+        public async Task<ActionResult<PagedResult>> GetPerformances([FromQuery] string[] queryParams)
         {
             var performanceSystems = await _performanceSystemDataService.GetPerformanceSystems();
 
@@ -27,6 +27,13 @@ namespace Shovel.WebAPI
             res.TotalCount = performanceSystems.Count;
 
             return Ok(res);
+        }
+
+        [HttpGet("GetPerformanceById/{id}")]
+        [ProducesResponseType(200)]
+        public async Task<ActionResult<PagedResult>> GetPerformanceById(int id)
+        {
+            return Ok(await _performanceSystemDataService.GetPerformanceSystemById(id));
         }
     }
 }

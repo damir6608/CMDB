@@ -35,7 +35,7 @@ namespace Shovel.WebAPI.Services.Synchronize
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
-                    var dateByLastSync = DateTime.Now.AddHours(-3);
+                    var dateByLastSync = DateTime.Now.AddMinutes(-10);
                     var serDate = JsonConvert.SerializeObject(dateByLastSync);
                     var param = $"?date={dateByLastSync}";
 

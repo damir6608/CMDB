@@ -23,4 +23,9 @@ export default [
       }
     ]
   },
+  {
+    text: 'Service',
+    path: '/service-page',
+    icon: 'toolbox'
+  }
   ];

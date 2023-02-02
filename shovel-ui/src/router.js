@@ -1,3 +1,6 @@
+import ServicePage from './views/service-page';
+import PerformanceDetailsPage from './views/performance-details-page';
+import ApplicationDetailsPage from './views/application-details-page';
 import ApplicationPage from './views/application-page';
 import auth from "./auth";
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -102,6 +105,33 @@ const router = new createRouter({
         layout: defaultLayout
       },
       component: ApplicationPage
+    }, 
+    {
+      path: "/application-details-page",
+      name: "application-details-page",
+      meta: {
+        requiresAuth: true,
+        layout: defaultLayout
+      },
+      component: ApplicationDetailsPage
+    }, 
+    {
+      path: "/performance-details-page",
+      name: "performance-details-page",
+      meta: {
+        requiresAuth: true,
+        layout: defaultLayout
+      },
+      component: PerformanceDetailsPage
+    }, 
+    {
+      path: "/service-page",
+      name: "service-page",
+      meta: {
+        requiresAuth: true,
+        layout: defaultLayout
+      },
+      component: ServicePage
     }
   ],
   history: createWebHashHistory()

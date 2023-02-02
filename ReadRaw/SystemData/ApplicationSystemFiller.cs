@@ -15,27 +15,29 @@ namespace ReadRaw.SystemData
             List<ApplicationSystemModel> applicationSystems = new List<ApplicationSystemModel>();
             DateTime insertDate = DateTime.Now;
 
-            foreach(var processes in Process.GetProcesses()
-                .Where(i => i.MainWindowTitle != string.Empty))
+            IEnumerable<Process> processes = Process.GetProcesses()
+                .Where(i => i.MainWindowTitle != string.Empty);
+
+            foreach (var process in processes)
             {
                 applicationSystems.Add(new ApplicationSystemModel()
                 {
-                    BasePriority = processes.BasePriority,
-                    HasExited = processes.HasExited,
-                    StartTime = processes.StartTime,
-                    MachineName = processes.MachineName,
-                    MaxWorkingSet = (int?)processes.MaxWorkingSet,
-                    MinWorkingSet = (int?)processes.MinWorkingSet,
-                    NonPagedSystemMemorySize64 = processes.NonpagedSystemMemorySize64,
-                    PagedMemorySize64 = processes.PagedMemorySize64,
-                    PagedSystemMemorySize64 = processes.PagedSystemMemorySize64,
-                    PeakWorkingSet64 = processes.PeakWorkingSet64,
-                    PeakVirtualMemorySize64 = processes.PeakVirtualMemorySize64,
-                    PriorityBoostEnabled = processes.PriorityBoostEnabled,
-                    ProcessName = processes.ProcessName,
-                    ThreadsCount = processes.Threads.Count,
-                    WorkingSet64 = processes.WorkingSet64,
-                    MainWindowTitle = processes.MainWindowTitle,
+                    BasePriority = process.BasePriority,
+                    HasExited = process.HasExited,
+                    StartTime = process.StartTime,
+                    MachineName = process.MachineName,
+                    MaxWorkingSet = (int?)process.MaxWorkingSet,
+                    MinWorkingSet = (int?)process.MinWorkingSet,
+                    NonPagedSystemMemorySize64 = process.NonpagedSystemMemorySize64,
+                    PagedMemorySize64 = process.PagedMemorySize64,
+                    PagedSystemMemorySize64 = process.PagedSystemMemorySize64,
+                    PeakWorkingSet64 = process.PeakWorkingSet64,
+                    PeakVirtualMemorySize64 = process.PeakVirtualMemorySize64,
+                    PriorityBoostEnabled = process.PriorityBoostEnabled,
+                    ProcessName = process.ProcessName,
+                    ThreadsCount = process.Threads.Count,
+                    WorkingSet64 = process.WorkingSet64,
+                    MainWindowTitle = process.MainWindowTitle,
                     InsertDate = insertDate,
                 });
             }
