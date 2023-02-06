@@ -1,8 +1,8 @@
 <template>
   <div class="performance-content">
     <h2 class="content-block">Performance details</h2>
-    <div class="content-block">
-      <div class="dx-card responsive-paddings">
+
+    <div class="content-block dx-card responsive-paddings">
         <DxForm
             id="form"
             :form-data="resultData"
@@ -12,8 +12,10 @@
             label-location="top"
             col-count="auto"
         />
-
+    </div>
         <h2 class="content-block">Logical drives</h2>
+
+    <div class="content-block dx-card responsive-paddings">
         <DxDataGrid
             :data-source="logicalDrives"
             key-expr="id"
@@ -31,8 +33,10 @@
               data-field="availablefreespace"
           />
         </DxDataGrid>
+    </div>
 
-        <h2 class="content-block">Server information</h2>
+    <h2 class="content-block">Server information</h2>
+    <div class="content-block dx-card responsive-paddings">
         <DxForm
             id="server_form"
             :form-data="server"
@@ -42,7 +46,6 @@
             label-location="top"
             col-count="auto"
         />
-      </div>
     </div>
   </div>
 </template>

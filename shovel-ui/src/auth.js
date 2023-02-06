@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const defaultUser = {
   email: 'sandra@example.com',
   avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png'
@@ -12,8 +14,10 @@ export default {
   async logIn(email, password) {
     try {
       // Send request
+      const res = await axios.get("https://localhost:7221/api/AuthUI/LogIn/" + email + "/" + password);
       console.log(email, password);
-      this._user = { ...defaultUser, email };
+      this._user = res.data;
+      console.log(this._user)
 
       return {
         isOk: true,
@@ -35,11 +39,8 @@ export default {
   async getUser() {
     try {
       // Send request
-
-      return {
-        isOk: true,
-        data: this._user
-      };
+      console.log(this._user)
+      return this._user;
     }
     catch {
       return {

@@ -74,7 +74,7 @@ export default {
     const route = useRoute();
 
     const email = ref("");
-    auth.getUser().then((e) => email.value = e.data.email);
+    auth.getUser().then((e) => email.value = e.email);
     
     const userMenuItems = [{
         text: "Profile",

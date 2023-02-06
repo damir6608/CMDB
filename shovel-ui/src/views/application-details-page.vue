@@ -1,8 +1,8 @@
 <template>
   <div class="application-content">
     <h2 class="content-block">Application details</h2>
-    <div class="content-block">
-      <div class="dx-card responsive-paddings">
+
+    <div class="content-block dx-card responsive-paddings">
         <DxForm
             id="form"
             :form-data="resultData"
@@ -12,8 +12,9 @@
             label-location="top"
             col-count="auto"
         />
-
+    </div>
         <h2 class="content-block">Server information</h2>
+        <div class="content-block dx-card responsive-paddings">
         <DxForm
             id="server_form"
             :form-data="server"
@@ -23,7 +24,6 @@
             label-location="top"
             col-count="auto"
         />
-      </div>
     </div>
   </div>
 </template>

@@ -3,66 +3,105 @@
     <h2 class="content-block">Profile</h2>
 
     <div class="content-block dx-card responsive-paddings">
-      <div class="form-avatar">
-        <img :src="imageSrc" />
-      </div>
-      <span>{{ formData.Notes }}</span>
+    <DxForm
+        id="form"
+        :form-data="resultData"
+        :col-count-by-screen="colCountByScreen"
+        :screen-by-width="screenByWidth"
+        :min-col-width="233"
+        label-location="top"
+        col-count="auto"
+    />
     </div>
 
+    <h2 class="content-block">Permissions</h2>
     <div class="content-block dx-card responsive-paddings">
-      <dx-form
-        id="form"
-        label-location="top"
-        :form-data="formData"
-        :colCountByScreen="colCountByScreen"
-      />
+      <DxDataGrid
+          :data-source="userRoles"
+          key-expr="id"
+      >
+        <DxColumn
+            data-field="role"
+            caption="Role name"
+        />
+        <DxColumn
+            data-field="permType"
+            caption="Permission type"
+        />
+        <DxColumn
+            data-field="permName"
+            caption="Permission name"
+        />
+      </DxDataGrid>
     </div>
   </div>
 </template>
 
 <script>
 import DxForm from "devextreme-vue/form";
-
+import { DxDataGrid, DxColumn } from 'devextreme-vue/data-grid';
+import auth from "@/auth";
 export default {
-  props: {
-    picture: String
-  },
-  setup() {
-    const picture = "images/employees/06.png";
-    
-    const imageSrc = `https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/${picture}`;
-    const formData = {
-      ID: 7,
-      FirstName: "Sandra",
-      LastName: "Johnson",
-      Prefix: "Mrs.",
-      Position: "Controller",
-      Picture: picture,
-      BirthDate: new Date("1974/11/5"),
-      HireDate: new Date("2005/05/11"),
-      Notes:
-        "Sandra is a CPA and has been our controller since 2008. " +
-        "She loves to interact with staff so if you`ve not met her, be certain to say hi." +
-        "\r\n\r\n" +
-        "Sandra has 2 daughters both of whom are accomplished gymnasts.",
-      Address: "4600 N Virginia Rd."
-    };
-    const colCountByScreen = {
-      xs: 1,
-      sm: 2,
-      md: 3,
-      lg: 4
-    }
-
-    return {
-      imageSrc,
-      formData,
-      colCountByScreen
-    };
-  },
   components: {
-    DxForm
-  }
+    DxDataGrid,
+    DxColumn,
+    DxForm,
+  },
+  created() {
+    this.getUser().then((data) => {
+      this.resultData =  this.getProfile(data);
+      this.userRoles = this.getUserRoles(data);
+      console.log(this.userRoles)
+    })
+  },
+  data() {
+    return {
+      resultData : null,
+      server : null,
+      userRoles :  null,
+      calculateColCountAutomatically: false,
+    };
+  },
+  computed: {
+    colCountByScreen() {
+      return this.calculateColCountAutomatically
+          ? null
+          : {
+            sm: 2,
+            md: 4,
+          };
+    },
+  },
+  methods: {
+    screenByWidth(width) {
+      return width < 720 ? 'sm' : 'md';
+    },
+    getUserRoles(data){
+      this.userRoles = [];
+      const roles = data.userRoles;
+      roles.forEach(role => {
+        console.log(role)
+        let id = 0;
+        role.role.rolePermissions.forEach(perm => {
+          console.log(perm)
+          id++;
+          this.userRoles.push({ id: id, role: role.role.name, permName: perm.permission.name, permType: perm.permission.type })
+        })
+      });
+      console.log(this.userRoles)
+      return this.userRoles;
+    },
+    getProfile(data){
+      return {
+        name: data.name,
+        email: data.email,
+        phone: data.phone
+      };
+    },
+    async getUser(){
+      return auth.getUser();
+    },
+  },
 };
 </script>
 

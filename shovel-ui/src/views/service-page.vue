@@ -4,7 +4,8 @@
     <div class="content-block">
       <div class="dx-card responsive-paddings">
         <form
-            action="your-action"
+            action="https://localhost:7221/api/ConfigurationUI/RunCommand"
+            method="post"
             @submit="handleSubmit"
         >
           <DxForm
@@ -17,11 +18,15 @@
             <DxGroupItem caption="Device management">
               <DxSimpleItem
                   data-field="command"
+                  v-model="model.command"
                   help-text="Enter the command which you want to run in all active devices"
+
               >
+
               </DxSimpleItem>
             </DxGroupItem>
             <DxButtonItem
+                id="sendButton"
                 :button-options="buttonOptions"
                 horizontal-alignment="left"
             />
@@ -43,6 +48,8 @@ import DxForm, {
 } from 'devextreme-vue/form';
 
 import notify from 'devextreme/ui/notify';
+import axios from "axios";
+import auth from "@/auth";
 
 export default {
   components: {
@@ -57,20 +64,27 @@ export default {
       buttonOptions: {
         text: 'Send',
         type: 'success',
+        disabled: false,
         useSubmitBehavior: true,
-      }
+      },
     };
   },
   methods: {
     handleSubmit(e) {
-      notify({
-        message: 'You have send the command',
-        position: {
-          my: 'center top',
-          at: 'center top',
-        },
-      }, 'success', 3000);
-      e.preventDefault(); //TODO sending command
+        this.submitted = true
+        notify({
+          message: 'You have send the command',
+          position: {
+            my: 'center top',
+            at: 'center top',
+          },
+        }, 'success', 3000);
+        e.preventDefault();
+        axios.post("https://localhost:7221/api/ConfigurationUI/RunCommand", e.target);
+      console.log(e)//TODO sending command
+    },
+    async getUser(){
+      return auth.getUser();
     },
   },
 };

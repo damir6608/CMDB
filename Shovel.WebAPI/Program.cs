@@ -8,6 +8,10 @@ using Shovel.WebAPI.Services.Data.Interfaces;
 using Shovel.WebAPI.Services.Synchronize;
 using Shovel.WebAPI.Services.Synchronize.Interfaces;
 using Newtonsoft.Json;
+using Shovel.WebAPI.Services.Configuration.Interfaces;
+using Shovel.WebAPI.Services.Configuration;
+using Shovel.WebAPI.Services.Auth;
+using Shovel.WebAPI.Services.Auth.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +26,10 @@ builder.Services.AddTransient<ISynchronizationService, SynchronizationService>()
 
 builder.Services.AddTransient<IPerformanceSystemDataService, PerformanceSystemDataService>();
 builder.Services.AddTransient<IApplicationSystemDataService, ApplicationSystemDataService>();
+
+builder.Services.AddTransient<IConfigurationService, ConfigurationService>();
+
+builder.Services.AddTransient<IAuthService, AuthService>();
 
 
 builder.Services.AddHttpClient();
