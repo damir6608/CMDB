@@ -56,7 +56,7 @@ namespace Shovel.WebAPI.Controllers
         [ProducesResponseType(200)]
         public async Task<FileResult> GetReport()
         {
-            return new ApplicationReportService(_applicationSystemDataService).GetReport();
+            return await new ApplicationReportService(_applicationSystemDataService).GetReport();
         }
     }
 }
