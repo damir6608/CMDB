@@ -1,5 +1,4 @@
-﻿
-namespace ReadRaw.DataModels
+﻿namespace ReadRaw.DataModels
 {
     public class PerformanceModel
     {
@@ -23,7 +22,7 @@ namespace ReadRaw.DataModels
         public List<LogicalDrive>? LogicalDrives { get; set; }
         public double RAMAvailable { get; set; }
         public string Version { get; set; } = string.Empty;
-        public DateTime InsertDate => DateTime.Now;
+        public DateTime InsertDate => DateTime.UtcNow;
 
     }
 }

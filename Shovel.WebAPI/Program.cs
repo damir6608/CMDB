@@ -10,8 +10,11 @@ using Shovel.WebAPI.Services.Synchronize.Interfaces;
 using Newtonsoft.Json;
 using Shovel.WebAPI.Services.Configuration.Interfaces;
 using Shovel.WebAPI.Services.Configuration;
+using Shovel.WebAPI.Services.Report.Interfaces;
+using Shovel.WebAPI.Services.Report;
 using Shovel.WebAPI.Services.Auth;
 using Shovel.WebAPI.Services.Auth.Interfaces;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +51,16 @@ builder.Services.AddQuartz(q =>
 });
 
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    options.AllowSynchronousIO = true;
+});
+
+// If using IIS:
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.AllowSynchronousIO = true;
+});
 
 var app = builder.Build();
 

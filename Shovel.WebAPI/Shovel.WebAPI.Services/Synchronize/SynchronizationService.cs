@@ -19,8 +19,8 @@ namespace Shovel.WebAPI.Services.Synchronize
 
         public async Task Execute()
         {
-            await _performanceSystemSynchronizeService.GetData();
-            await _applicationSystemSynchronizeService.GetData();
+            _performanceSystemSynchronizeService.GetData();
+            _applicationSystemSynchronizeService.GetData();
         }
     }
 }

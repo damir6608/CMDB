@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.Services", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.Abstractions", "Shovel.WebAPI.Abstractions\Shovel.WebAPI.Abstractions.csproj", "{05A9686E-1B8E-454E-988B-9F37688E4528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shovel.WebAPI.QuartzJobsAndTriggers", "Shovel.WebAPI.QuartzJobsAndTriggers\Shovel.WebAPI.QuartzJobsAndTriggers.csproj", "{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shovel.WebAPI.QuartzJobsAndTriggers", "Shovel.WebAPI.QuartzJobsAndTriggers\Shovel.WebAPI.QuartzJobsAndTriggers.csproj", "{EC434AA3-DF9A-4882-9553-D5DF2748F6DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

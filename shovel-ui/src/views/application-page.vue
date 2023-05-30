@@ -1,7 +1,7 @@
 <template>
+  <h2 class="content-block">Application</h2>
+  <button @click="onClick()">Report</button>
   <div>
-    <h2 class="content-block">Application</h2>
-
     <dx-data-grid
         class="dx-card wide-card"
         :data-source="dataSourceConfig"
@@ -81,15 +81,32 @@ import DxDataGrid, {
   DxPaging
 } from "devextreme-vue/data-grid";
 import router from "@/router";
+import axios from "axios";
 
 export default {
   methods: {
     onSelectionChanged({ selectedRowsData }) {
       const datas = selectedRowsData[0];
       console.log(datas.id);
-      let idRow = datas.id;
+      const idRow = datas.id;
       router.push({ path: '/application-details-page',  query: {id : idRow}})
     },
+    onClick() {
+      axios({
+        url: 'https://localhost:7221/api/ApplicationSystemUI/GetReport',
+        method: 'GET',
+        responseType: 'blob',
+      }).then((response) => {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'HelloWorld.xlsx');
+        document.body.appendChild(fileLink);
+
+        fileLink.click();
+      });
+    }
   },
   setup() {
     const dataSourceConfig = {
@@ -101,7 +118,7 @@ export default {
       // expand: "ApplicationSystem"
     };
     return {
-      dataSourceConfig
+      dataSourceConfig,
     };
   },
   components: {
@@ -109,7 +126,7 @@ export default {
     DxColumn,
     DxFilterRow,
     DxPager,
-    DxPaging
+    DxPaging,
   }
 };
 </script>

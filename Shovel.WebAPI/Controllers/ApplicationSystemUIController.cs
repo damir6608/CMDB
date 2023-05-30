@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using ClosedXML.Excel;
+using ClosedXML.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Shovel.WebAPI.Abstractions.Model.Response;
 using Shovel.WebAPI.Models;
-using Shovel.WebAPI.Services.Data;
 using Shovel.WebAPI.Services.Data.Interfaces;
+using Shovel.WebAPI.Services.Report;
+using System.IO;
 
-namespace Shovel.WebAPI
+namespace Shovel.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -18,23 +20,43 @@ namespace Shovel.WebAPI
             _applicationSystemDataService = applicationSystemService;
         }
 
+        /// <summary>
+        /// Returns a list of applications by filters.
+        /// </summary>
+        /// <param name="queryParams"> The set of filters. </param>
+        /// <returns> OkObjectResult </returns>
         [HttpGet("GetAll")]
         [ProducesResponseType(200)]
         public async Task<ActionResult<PagedResult>> GetApplications([FromQuery] string[] queryParams)
         {
-            var applicationSystems = await _applicationSystemDataService.GetApplicationSystems();
+            List<ApplicationSystem> applicationSystems = await _applicationSystemDataService.GetApplicationSystems();
 
-            var res = new PagedResult(applicationSystems);
+            PagedResult res = new PagedResult(applicationSystems);
             res.TotalCount = applicationSystems.Count;
 
             return Ok(res);
         }
 
+        /// <summary>
+        /// Returns a application item by id.
+        /// </summary>
+        /// <param name="id"> The id of application. </param>
+        /// <returns></returns>
         [HttpGet("GetApplicationById/{id}")]
         [ProducesResponseType(200)]
         public async Task<ActionResult<PagedResult>> GetApplicationeById(int id)
         {
             return Ok(await _applicationSystemDataService.GetApplicationSystemById(id));
+        }
+
+        /// <summary>
+        /// Returns a report in excel format.
+        /// </summary>
+        [HttpGet("GetReport")]
+        [ProducesResponseType(200)]
+        public async Task<FileResult> GetReport()
+        {
+            return new ApplicationReportService(_applicationSystemDataService).GetReport();
         }
     }
 }

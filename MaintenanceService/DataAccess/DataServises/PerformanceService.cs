@@ -12,11 +12,11 @@ namespace MaintenanceService.DataAccess.DataServises
         {
             using (var db = new LiteDatabase(_dbLocation))
             {
-                var col = db.GetCollection<PerformanceModel>("performance");
+                ILiteCollection<PerformanceModel> col = db.GetCollection<PerformanceModel>("performance");
 
                 col.EnsureIndex(x => x.InsertDate);
 
-                var results = col.FindAll().Where(i => i.InsertDate > lastSyncDate).ToList();
+                List<PerformanceModel> results = col.FindAll().Where(i => i.InsertDate > lastSyncDate).ToList();
 
                 return results;
             }

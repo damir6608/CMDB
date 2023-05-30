@@ -2,7 +2,7 @@
 
 namespace ReadRaw.QuartzJobs
 {
-    internal class SimpleJob : IJob
+    internal class InsertingCollectedDataJob : IJob
     {
         public async Task Execute(IJobExecutionContext context)
         {
@@ -11,10 +11,12 @@ namespace ReadRaw.QuartzJobs
 
         public void Run()
         {
+            Console.WriteLine("The data inserting job started at :- " + DateTime.UtcNow);
+
             DataAccess.DataService.InsertPerformanceData();
             DataAccess.DataService.InsertApplicationData();
 
-            Console.WriteLine("Logging at :- " + DateTime.Now);
+            Console.WriteLine("The data was successfully added at :- " + DateTime.UtcNow);
         }
     }
 }

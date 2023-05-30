@@ -1,5 +1,4 @@
 ﻿using ReadRaw.DataModels;
-using System.Diagnostics;
 
 namespace ReadRaw.SystemData
 {
@@ -29,9 +28,13 @@ namespace ReadRaw.SystemData
                 Version = Environment.Version.ToString()
             };
 
+            GCMemoryInfo gcMemoryInfo = GC.GetGCMemoryInfo();
+            Int64 installedMemory = gcMemoryInfo.TotalAvailableMemoryBytes;
+            performanceModel.RAMAvailable = installedMemory;
+
             performanceModel.LogicalDrives = new List<LogicalDrive>();
             //Drives
-            foreach (System.IO.DriveInfo DriveInfo1 in System.IO.DriveInfo.GetDrives())
+            foreach (DriveInfo DriveInfo1 in DriveInfo.GetDrives())
             {
                 try
                 {
@@ -47,12 +50,9 @@ namespace ReadRaw.SystemData
                 }
                 catch
                 {
+                    return performanceModel;
                 }
             }
-
-            GCMemoryInfo gcMemoryInfo = GC.GetGCMemoryInfo();
-            Int64 installedMemory = gcMemoryInfo.TotalAvailableMemoryBytes;
-            performanceModel.RAMAvailable = installedMemory;
 
             return performanceModel;
         }

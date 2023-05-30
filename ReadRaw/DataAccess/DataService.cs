@@ -1,13 +1,4 @@
 ﻿using LiteDB;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using Serilog;
-using System.Text.Json;
 using ReadRaw.SystemData;
 using ReadRaw.DataModels;
 
@@ -23,13 +14,12 @@ namespace ReadRaw.DataAccess
 
                 PerformanceModel performanceData = PerformanceDataFiller.GetPerformanceCounter();
 
-                // Insert new customer document (Id will be auto-incremented)
                 col.Insert(performanceData);
 
-                // Index document using document Name property
                 col.EnsureIndex(x => x.InsertDate);
             }
         }
+
         public static void InsertApplicationData()
         {
             using (LiteDatabase db = new LiteDatabase(@$"{new DirectoryInfo(@"..\..\..\..\").FullName}\LiteDB\applog.db"))
@@ -38,10 +28,8 @@ namespace ReadRaw.DataAccess
 
                 List<ApplicationSystemModel> performanceData = ApplicationSystemFiller.GetApplicationSystems();
 
-                // Insert new customer document (Id will be auto-incremented)
                 col.Insert(performanceData);
 
-                // Index document using document Name property
                 col.EnsureIndex(x => x.InsertDate);
             }
         }

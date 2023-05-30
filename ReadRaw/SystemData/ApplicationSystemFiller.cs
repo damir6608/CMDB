@@ -1,10 +1,5 @@
 ﻿using ReadRaw.DataModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadRaw.SystemData
 {
@@ -13,12 +8,12 @@ namespace ReadRaw.SystemData
         public static List<ApplicationSystemModel> GetApplicationSystems()
         {
             List<ApplicationSystemModel> applicationSystems = new List<ApplicationSystemModel>();
-            DateTime insertDate = DateTime.Now;
+            DateTime insertDate = DateTime.UtcNow;
 
             IEnumerable<Process> processes = Process.GetProcesses()
                 .Where(i => i.MainWindowTitle != string.Empty);
 
-            foreach (var process in processes)
+            foreach (Process? process in processes)
             {
                 applicationSystems.Add(new ApplicationSystemModel()
                 {

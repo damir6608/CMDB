@@ -31,8 +31,7 @@ namespace ReadRaw
         }
         public void ScheduleJobs()
         {
-#pragma warning disable CS8604 // Possible null reference argument.
-            IJobDetail job = JobBuilder.Create<SimpleJob>()
+            IJobDetail job = JobBuilder.Create<InsertingCollectedDataJob>()
                 .WithIdentity(ConfigurationManager.AppSettings["JobName"], ConfigurationManager.AppSettings["GroupName"])
                 .Build();
 
@@ -41,7 +40,6 @@ namespace ReadRaw
                 .StartNow()
                  .WithCronSchedule(ConfigurationManager.AppSettings["Schedule"])
                 .Build();
-#pragma warning restore CS8604 // Possible null reference argument.
 
             // Tell quartz to schedule the job using our trigger
             _scheduler.ScheduleJob(job, trigger).ConfigureAwait(false).GetAwaiter().GetResult();

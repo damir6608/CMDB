@@ -1,15 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Shovel.WebAPI.Abstractions.Extensions;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Synchronize.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shovel.WebAPI.Services.Synchronize
 {
@@ -26,26 +18,26 @@ namespace Shovel.WebAPI.Services.Synchronize
         async Task<List<ApplicationSystem>> IApplicationSystemSynchronizeService.GetData()
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            var perfrormance = new List<ApplicationSystem>();
-            var serverSet = _shovelContext.Set<Server>().ToList();
-            foreach(var server in serverSet)
+            List<ApplicationSystem> perfrormance = new List<ApplicationSystem>();
+            DbSet<Server> serverSet = _shovelContext.Set<Server>();
+            foreach(Server server in serverSet)
             {
                 DateTime SyncTime = DateTime.Now;
-                using (var client = _factory.CreateClient())
+                using (HttpClient client = _factory.CreateClient())
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
-                    var dateByLastSync = DateTime.Now.AddMinutes(-10);
-                    var serDate = JsonConvert.SerializeObject(dateByLastSync);
-                    var param = $"?date={dateByLastSync}";
+                    DateTime dateByLastSync = DateTime.Now.AddMinutes(-10);
+                    string serDate = JsonConvert.SerializeObject(dateByLastSync);
+                    string param = $"?date={dateByLastSync}";
 
-                    var responce = await client.GetAsync($"Application{param}");
-                    var stringData = await responce.Content.ReadAsStringAsync();
-                    var applicationResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
+                    HttpResponseMessage responce = await client.GetAsync($"Application{param}");
+                    string stringData = await responce.Content.ReadAsStringAsync();
+                    List<ApplicationSystem> applicationResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
 
                     applicationResult = applicationResult ?? new List<ApplicationSystem>();
 
-                    var show = _shovelContext.Set<ApplicationSystem>();
+                    DbSet<ApplicationSystem> show = _shovelContext.Set<ApplicationSystem>();
 
                     applicationResult.ForEach(i => { i.Synctime = SyncTime; i.Serverid = server.Id; });
 

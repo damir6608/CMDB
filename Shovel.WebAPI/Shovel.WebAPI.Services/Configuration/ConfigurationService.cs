@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Configuration.Interfaces;
 using System;
@@ -23,17 +24,17 @@ namespace Shovel.WebAPI.Services.Configuration
         async Task IConfigurationService.SendCommand(string command)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            var serverSet = _shovelContext.Set<Server>().ToList();
+            DbSet<Server> serverSet = _shovelContext.Set<Server>();
             foreach (var server in serverSet)
             {
-                using (var client = _factory.CreateClient())
+                using (HttpClient client = _factory.CreateClient())
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
                     StringContent content = new StringContent(JsonConvert.SerializeObject(command), Encoding.UTF8, Application.Json);
 
-                    var responce = await client.PostAsync($"Execute", content);
-                    var stringData = await responce.Content.ReadAsStringAsync();
+                    HttpResponseMessage responce = await client.PostAsync($"Execute", content);
+                    string stringData = await responce.Content.ReadAsStringAsync();
                 }
             }
         }

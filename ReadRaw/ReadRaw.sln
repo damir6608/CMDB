@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadRaw", "ReadRaw.csproj", "{D69A84C9-0A68-47AB-A175-483FBC70295B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadRaw", "ReadRaw.csproj", "{D69A84C9-0A68-47AB-A175-483FBC70295B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ReadRaw.Setup", "..\ReadRaw.Setup\ReadRaw.Setup.vdproj", "{41BCD24D-5614-42B1-9083-67B1599D3BE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{402B187D-6DB1-4857-BF36-F7F5A6E19039}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,8 @@ Global
 		{D69A84C9-0A68-47AB-A175-483FBC70295B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69A84C9-0A68-47AB-A175-483FBC70295B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69A84C9-0A68-47AB-A175-483FBC70295B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BCD24D-5614-42B1-9083-67B1599D3BE9}.Debug|Any CPU.ActiveCfg = Debug
+		{41BCD24D-5614-42B1-9083-67B1599D3BE9}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

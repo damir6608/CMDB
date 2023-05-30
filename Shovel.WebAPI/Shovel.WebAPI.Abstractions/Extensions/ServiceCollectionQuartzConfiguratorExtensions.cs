@@ -21,8 +21,8 @@ namespace Shovel.WebAPI.Abstractions.Extensions
             string jobName = typeof(T).Name;
 
             // Try and load the schedule from configuration
-            var configKey = $"Quartz:{jobName}";
-            var cronSchedule = config[configKey];
+            string configKey = $"Quartz:{jobName}";
+            string cronSchedule = config[configKey];
 
             // Some minor validation
             if (string.IsNullOrEmpty(cronSchedule))
@@ -33,7 +33,7 @@ namespace Shovel.WebAPI.Abstractions.Extensions
             CronExpression = cronSchedule;
 
             // register the job as before
-            var jobKey = new JobKey(jobName);
+            JobKey jobKey = new JobKey(jobName);
             quartz.AddJob<T>(opts => opts.WithIdentity(jobKey));
 
             quartz.AddTrigger(opts => opts

@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shovel.WebAPI.Services.Data
 {
@@ -29,7 +24,7 @@ namespace Shovel.WebAPI.Services.Data
             if (applicationSystems is null)
                 throw new ArgumentNullException(nameof(applicationSystems));
 
-            return applicationSystems.FirstOrDefault();
+            return applicationSystems.First();
         }
 
         async Task<List<ApplicationSystem>> IApplicationSystemDataService.GetApplicationSystems()

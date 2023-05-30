@@ -1,5 +1,4 @@
-﻿
-namespace ReadRaw.DataModels
+﻿namespace ReadRaw.DataModels
 {
     public class LogicalDrive
     {

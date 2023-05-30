@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace Shovel.WebAPI.Models;
+﻿namespace Shovel.WebAPI.Models;
 
 public partial class ApplicationSystem
 {

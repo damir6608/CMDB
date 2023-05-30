@@ -10,13 +10,13 @@ namespace MaintenanceService.DataAccess.DataServises
 
         public IEnumerable<ApplicationSystemModel> GetApplicationData(DateTime lastSyncDate)
         {
-            using (var db = new LiteDatabase(_dbLocation))
+            using (LiteDatabase db = new LiteDatabase(_dbLocation))
             {
-                var col = db.GetCollection<ApplicationSystemModel>("application");
+                ILiteCollection<ApplicationSystemModel> col = db.GetCollection<ApplicationSystemModel>("application");
 
                 col.EnsureIndex(x => x.InsertDate);
 
-                var results = col.FindAll().Where(i => i.InsertDate > lastSyncDate).ToList();
+                List<ApplicationSystemModel> results = col.FindAll().Where(i => i.InsertDate > lastSyncDate).ToList();
 
                 return results;
             }
