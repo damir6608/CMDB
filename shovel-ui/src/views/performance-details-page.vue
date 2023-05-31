@@ -87,7 +87,34 @@ export default {
     },
     async getById(){
       const res = await axios.get("https://localhost:7221/api/PerformanceSystemUI/GetPerformanceById/"+ this.$route.query.id);
-      this.resultData = res.data;
+
+      console.log(res.data)
+
+      this.resultData = {
+        OperationSystem: res.data.operationsystem,
+        ProcessorLevel: res.data.processorlevel,
+        UserName: res.data.username,
+        SystemPageSize: res.data.systempagesize,
+        Is64BitOperatingSystem: res.data.is64bitoperatingsystem,
+        InsertDate: res.data.insertdate,
+        SystemDirectory: res.data.systemdirectory,
+        MachineName: res.data.machinename,
+        TickCount64: res.data.tickcount64,
+        Is64BitProcess: res.data.is64bitprocess,
+        SyncTime: res.data.synctime,
+        ProcessorArchitecture: res.data.processorarchitecture,
+        ProcessorCount: res.data.processorcount,
+        ProcessId: res.data.processid,
+        UserInteractive: res.data.userinteractive,
+        RamAvailable: res.data.ramavailable,
+        ServerId: res.data.serverid,
+        ProcessorModel: res.data.processormodel,
+        UserDomainName: res.data.userdomainname,
+        ProcessPath: res.data.processpath,
+        WorkingSet: res.data.workingset,
+        Version: res.data.version
+      }
+
       this.server = res.data.server;
       this.logicalDrives = res.data.logicalDrives;
       console.log(this.logicalDrives)

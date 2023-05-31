@@ -90,9 +90,9 @@ namespace Shovel.WebAPI.Services.Report
                 workbook.SaveAs(ReportName);
 
 
-                var bytes = File.ReadAllBytes(ReportName);
+                var bytes = System.IO.File.ReadAllBytes(ReportName);
 
-                File.Delete(ReportName);
+                System.IO.File.Delete(ReportName);
 
                 const string contentType = IReportService.ResponseContentType;
 

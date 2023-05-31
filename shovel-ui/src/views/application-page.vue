@@ -1,6 +1,13 @@
 <template>
   <h2 class="content-block">Application</h2>
-  <button @click="onClick()">Report</button>
+  <div  title="Экспортировать данные в Excel" class="dx-item dx-list-item" style="alignment: right; width: auto">
+    <div class="dx-item-content dx-list-item-content">
+      <div class="dx-list-item-icon-container">
+        <i style="alignment: right; width: auto" @click="onClick()" class="dx-icon dx-icon-xlsxfile dx-list-item-icon"></i>
+      </div>
+      Экспортировать данные в Excel
+    </div>
+  </div>
   <div>
     <dx-data-grid
         class="dx-card wide-card"
@@ -97,11 +104,15 @@ export default {
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {
-        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
-        var fileLink = document.createElement('a');
+        const fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        const fileLink = document.createElement('a');
 
+        const fileName = response.headers['content-disposition'].split('filename=')[1].split(';')[0].replaceAll('"', '');
+
+        console.log(fileName)
         fileLink.href = fileURL;
-        fileLink.setAttribute('download', 'HelloWorld.xlsx');
+        fileLink.setAttribute('download',fileName
+        );
         document.body.appendChild(fileLink);
 
         fileLink.click();
