@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2 class="content-block">Home</h2>
+    <h2 class="content-block">Домашняя страница</h2>
     <div class="content-block">
       <div class="dx-card responsive-paddings">
         <p>
-          This is the user interface of the data aggregation project that allows you to view the characteristics of computers and running applications as well as send various commands
+          Это пользовательский интерфейс проекта агрегации данных, который позволяет просматривать характеристики компьютеров и запущенных приложений, а также отправлять различные команды.
         </p>
 
       </div>

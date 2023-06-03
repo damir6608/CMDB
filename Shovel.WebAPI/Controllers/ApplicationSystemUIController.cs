@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using ClosedXML.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Shovel.WebAPI.Abstractions.Model;
 using Shovel.WebAPI.Abstractions.Model.Response;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Data.Interfaces;
@@ -27,9 +28,9 @@ namespace Shovel.WebAPI.Controllers
         /// <returns> OkObjectResult </returns>
         [HttpGet("GetAll")]
         [ProducesResponseType(200)]
-        public async Task<ActionResult<PagedResult>> GetApplications([FromQuery] string[] queryParams)
+        public async Task<ActionResult<PagedResult>> GetApplications([FromQuery] QueryFilterModel queryParams)
         {
-            List<ApplicationSystem> applicationSystems = await _applicationSystemDataService.GetApplicationSystems();
+            List<ApplicationSystem> applicationSystems = await _applicationSystemDataService.GetApplicationSystems(queryParams);
 
             PagedResult res = new PagedResult(applicationSystems);
             res.TotalCount = applicationSystems.Count;

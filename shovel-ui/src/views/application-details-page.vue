@@ -5,154 +5,135 @@
         <div class="dx-fieldset">
 
           <div class="dx-field">
-            <div class="dx-field-label">Имя устройства, на котором запущено приложение</div>
+            <div class="dx-field-label">Имя устройства, на котором запущено приложение:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.MachineName}}</DxTextBox>
+              {{this.resultData.MachineName}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Количество какой-то памяти</div>
+            <div class="dx-field-label">Объем выгружаемой системной памяти в байтах, выделенной для связанного процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.PagedMemorySize64}}</DxTextBox>
+              {{this.resultData.PagedMemorySize64}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Значение, указывающее, следует ли операционной системе временно повысить <br>приоритет соответствующего процесса, когда главное окно находится в фокусе.</div>
+            <div class="dx-field-label">Значение, указывающее, следует ли операционной системе временно повысить <br>приоритет соответствующего процесса, когда главное окно находится в фокусе:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.PriorityBoostEnabled === 'true' ? 'Да' : 'Нет'}}</DxTextBox>
+              {{this.resultData.PriorityBoostEnabled === 'true' ? 'Да' : 'Нет'}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Время работы с момента запуска, миллисекунды.</div>
+            <div class="dx-field-label">Время работы с момента запуска:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.WorkingSet64}}</DxTextBox>
+              {{this.resultData.WorkingSet64 / 60_000}} минут
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Базовый приоритет связанного процесса.</div>
+            <div class="dx-field-label">Базовый приоритет связанного процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.BasePriority}}</DxTextBox>
+              {{this.resultData.BasePriority}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Максимально допустимый рабочий набор для связанного процесса.<br>В macOS и FreeBSD установка значения работает только для текущего процесса.</div>
+            <div class="dx-field-label">Максимально допустимый рабочий набор для связанного процесса.<br>В macOS и FreeBSD установка значения работает только для текущего процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.MaxWorkingset}}</DxTextBox>
+              {{this.resultData.MaxWorkingset}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Какая-то очередная память.</div>
+            <div class="dx-field-label">Объем выгружаемой системной памяти в байтах, выделенной для связанного процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.PagedSystemMemorySize64}}</DxTextBox>
+              {{this.resultData.PagedSystemMemorySize64}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Понятное название процесса.</div>
+            <div class="dx-field-label">Понятное название процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.ProcessName}}</DxTextBox>
+              {{this.resultData.ProcessName}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Заголовок запущенного приложения.</div>
+            <div class="dx-field-label">Заголовок запущенного приложения:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.MainWindowTitle}}</DxTextBox>
+              {{this.resultData.MainWindowTitle}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Значение, указывающее, был ли завершен связанный процесс.</div>
+            <div class="dx-field-label">Значение, указывающее, был ли завершен связанный процесс:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.HasExited === 'true' ? 'Да' : 'Нет'}}</DxTextBox>
+              {{this.resultData.HasExited === 'true' ? 'Да' : 'Нет'}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Минимально допустимый рабочий набор для связанного процесса.<br>В macOS и FreeBSD установка значения работает только для текущего процесса.</div>
+            <div class="dx-field-label">Минимально допустимый рабочий набор для связанного процесса.<br>В macOS и FreeBSD установка значения работает только для текущего процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.MinWorkingSet}}</DxTextBox>
+              {{this.resultData.MinWorkingSet}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Что-то очередное.</div>
+            <div class="dx-field-label">Максимальный объем физической памяти (в байтах), используемой связанным процессом:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.PeakWorkingSet64}}</DxTextBox>
+              {{this.resultData.PeakWorkingSet64}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Имя файла.</div>
+            <div class="dx-field-label">Имя файла:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.StartInfoFileName}}</DxTextBox>
+              {{this.resultData.StartInfoFileName}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Дата синхронизации.</div>
+            <div class="dx-field-label">Дата синхронизации:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{new Date(this.resultData.SyncTime).toDateString() + ' ' + new Date(this.resultData.SyncTime).toTimeString()}}</DxTextBox>
+              {{new Date(this.resultData.SyncTime).toDateString() + ' ' + new Date(this.resultData.SyncTime).toTimeString()}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Дата запуска приложения.</div>
+            <div class="dx-field-label">Дата запуска приложения:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{new Date(this.resultData.StartTime).toDateString() + ' ' + new Date(this.resultData.StartTime).toTimeString()}}</DxTextBox>
+              {{new Date(this.resultData.StartTime).toDateString() + ' ' + new Date(this.resultData.StartTime).toTimeString()}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Ага...</div>
+            <div class="dx-field-label">Объем невыгружаемой системной памяти в байтах, выделенной для связанного процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.NonPagedSystemMemorySize64}}</DxTextBox>
+              {{this.resultData.NonPagedSystemMemorySize64}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">вы поняли.</div>
+            <div class="dx-field-label">Максимальный объем виртуальной памяти (в байтах), используемой связанным процессом:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.PeakVirtualMemorySize64}}</DxTextBox>
+              {{this.resultData.PeakVirtualMemorySize64}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Количество запущенных потоков для обслуживания данного процесса.</div>
+            <div class="dx-field-label">Количество запущенных потоков для обслуживания данного процесса:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{this.resultData.ThreadsCount}}</DxTextBox>
+              {{this.resultData.ThreadsCount}}
             </div>
           </div>
 
           <div class="dx-field">
-            <div class="dx-field-label">Дата, когда приложения было считано на устройстве.</div>
+            <div class="dx-field-label">Дата, когда приложения было считано на устройстве:</div>
             <div class="dx-field-value">
-              <DxTextBox
-                  :disabled="true">{{new Date(this.resultData.InsertDate).toDateString() + ' ' + new Date(this.resultData.InsertDate).toTimeString()}}</DxTextBox>
+              {{new Date(this.resultData.InsertDate).toDateString() + ' ' + new Date(this.resultData.InsertDate).toTimeString()}}
             </div>
           </div>
 
@@ -164,7 +145,7 @@
 
 
           <div class="dx-field">
-            <div class="dx-field-label">Адрес компьютера с которого собиралась информация.</div>
+            <div class="dx-field-label">Адрес компьютера с которого собиралась информация:</div>
             <div class="dx-field-value">
               <DxTextBox
                   :disabled="true">{{this.server.BaseAddress}}</DxTextBox>
@@ -173,12 +154,10 @@
     </div>
 </template>
 <script>
-import DxTextBox from 'devextreme-vue/text-box';
 import axios from "axios";
 
 export default {
   components: {
-    DxTextBox
   },
   created() {
     this.getById()

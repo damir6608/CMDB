@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Shovel.WebAPI.Abstractions.Model;
 using Shovel.WebAPI.Abstractions.Model.Response;
 using Shovel.WebAPI.Models;
+using Shovel.WebAPI.Services.Data;
 using Shovel.WebAPI.Services.Data.Interfaces;
+using Shovel.WebAPI.Services.Report;
 
 namespace Shovel.WebAPI
 {
@@ -19,7 +22,7 @@ namespace Shovel.WebAPI
 
         [HttpGet("GetAll")]
         [ProducesResponseType(200)]
-        public async Task<ActionResult<PagedResult>> GetPerformances([FromQuery] string[] queryParams)
+        public async Task<ActionResult<PagedResult>> GetPerformances([FromQuery] QueryFilterModel queryParams)
         {
             List<PerformanceSystem> performanceSystems = await _performanceSystemDataService.GetPerformanceSystems();
 
@@ -34,6 +37,16 @@ namespace Shovel.WebAPI
         public async Task<ActionResult<PagedResult>> GetPerformanceById(int id)
         {
             return Ok(await _performanceSystemDataService.GetPerformanceSystemById(id));
+        }
+
+        /// <summary>
+        /// Returns a report in excel format.
+        /// </summary>
+        [HttpGet("GetReport")]
+        [ProducesResponseType(200)]
+        public async Task<FileResult> GetReport()
+        {
+            return await new PerformanceReportService(_performanceSystemDataService).GetReport();
         }
     }
 }

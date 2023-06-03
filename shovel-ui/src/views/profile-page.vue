@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="content-block">Profile</h2>
+    <h2 class="content-block">Профиль</h2>
 
     <div class="content-block dx-card responsive-paddings">
     <DxForm
@@ -14,7 +14,7 @@
     />
     </div>
 
-    <h2 class="content-block">Permissions</h2>
+    <h2 class="content-block">Доступы</h2>
     <div class="content-block dx-card responsive-paddings">
       <DxDataGrid
           :data-source="userRoles"
@@ -22,15 +22,15 @@
       >
         <DxColumn
             data-field="role"
-            caption="Role name"
+            caption="Название роли"
         />
         <DxColumn
             data-field="permType"
-            caption="Permission type"
+            caption="Тип доступа"
         />
         <DxColumn
             data-field="permName"
-            caption="Permission name"
+            caption="Название доступа"
         />
       </DxDataGrid>
     </div>

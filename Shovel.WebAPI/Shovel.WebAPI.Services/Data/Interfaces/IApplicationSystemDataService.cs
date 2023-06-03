@@ -1,4 +1,5 @@
-﻿using Shovel.WebAPI.Models;
+﻿using Shovel.WebAPI.Abstractions.Model;
+using Shovel.WebAPI.Models;
 
 namespace Shovel.WebAPI.Services.Data.Interfaces
 {
@@ -13,6 +14,6 @@ namespace Shovel.WebAPI.Services.Data.Interfaces
         /// <summary>
         /// Returns the list of applications from the database.
         /// </summary>
-        public Task<List<ApplicationSystem>> GetApplicationSystems();
+        public Task<List<ApplicationSystem>> GetApplicationSystems(QueryFilterModel? queryFilter = null);
     }
 }

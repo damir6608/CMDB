@@ -24,7 +24,7 @@ namespace Shovel.WebAPI.Services.Configuration
         async Task IConfigurationService.SendCommand(string command)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            DbSet<Server> serverSet = _shovelContext.Set<Server>();
+            List<Server> serverSet = _shovelContext.Set<Server>().ToList();
             foreach (var server in serverSet)
             {
                 using (HttpClient client = _factory.CreateClient())

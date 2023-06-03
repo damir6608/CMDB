@@ -92,14 +92,14 @@ namespace Shovel.WebAPI.Services.Report
 
                 var bytes = System.IO.File.ReadAllBytes(ReportName);
 
-                System.IO.File.Delete(ReportName);
-
                 const string contentType = IReportService.ResponseContentType;
 
                 var fileContentResult = new FileContentResult(bytes, contentType)
                 {
                     FileDownloadName = ReportName
                 };
+
+                System.IO.File.Delete(ReportName);
 
                 return fileContentResult;
             }

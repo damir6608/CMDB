@@ -1,5 +1,5 @@
 <template>
-  <h2 class="content-block">Application</h2>
+  <h2 class="content-block">Приложения</h2>
   <div  title="Экспортировать данные в Excel" class="dx-item dx-list-item" style="alignment: right; width: auto">
     <div class="dx-item-content dx-list-item-content">
       <div class="dx-list-item-icon-container">
@@ -109,7 +109,6 @@ export default {
 
         const fileName = response.headers['content-disposition'].split('filename=')[1].split(';')[0].replaceAll('"', '');
 
-        console.log(fileName)
         fileLink.href = fileURL;
         fileLink.setAttribute('download',fileName
         );

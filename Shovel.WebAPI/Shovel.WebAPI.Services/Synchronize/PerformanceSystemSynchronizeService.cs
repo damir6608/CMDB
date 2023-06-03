@@ -20,7 +20,7 @@ namespace Shovel.WebAPI.Services.Synchronize
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             List<PerformanceSystem> perfrormance = new List<PerformanceSystem>();
-            DbSet<Server> serverSet = _shovelContext.Set<Server>();
+            List<Server> serverSet = _shovelContext.Set<Server>().ToList();
             foreach(var server in serverSet)
             {
                 DateTime SyncTime = DateTime.Now;
@@ -28,7 +28,7 @@ namespace Shovel.WebAPI.Services.Synchronize
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
-                    DateTime dateByLastSync = DateTime.Now.AddMinutes(-10);
+                    DateTime dateByLastSync = DateTime.Now.AddHours(-2);
                     string serDate = JsonConvert.SerializeObject(dateByLastSync);
                     string param = $"?date={dateByLastSync}";
 

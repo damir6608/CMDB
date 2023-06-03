@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="content-block">Service</h2>
+    <h2 class="content-block">Конфигурация</h2>
     <div class="content-block">
       <div class="dx-card responsive-paddings">
         <form
@@ -15,11 +15,11 @@
               :show-validation-summary="true"
               validation-group="customerData"
           >
-            <DxGroupItem caption="Device management">
+            <DxGroupItem caption="Конфигурация устройств">
               <DxSimpleItem
                   data-field="command"
                   v-model="model.command"
-                  help-text="Enter the command which you want to run in all active devices"
+                  help-text="Введите команду, которую вы хотите выполнить на всех активных устройствах"
 
               >
 
@@ -62,7 +62,7 @@ export default {
     return {
       model: { command: 'calc' },
       buttonOptions: {
-        text: 'Send',
+        text: 'Отправить',
         type: 'success',
         disabled: false,
         useSubmitBehavior: true,
@@ -73,7 +73,7 @@ export default {
     handleSubmit(e) {
         this.submitted = true
         notify({
-          message: 'You have send the command',
+          message: 'Вы отправили команду',
           position: {
             my: 'center top',
             at: 'center top',
