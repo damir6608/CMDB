@@ -23,6 +23,11 @@ namespace Shovel.WebAPI.Abstractions.Model
                 var filterResult = new Dictionary<string, string>();
                 foreach (var filter in Filter.Split(" and "))
                 {
+                    if (filter.Contains("(id "))
+                    {
+                        continue;
+                    }
+
                     var deletingCount = 0;
                     for (; deletingCount < filter.Length; deletingCount++)
                     {
@@ -44,7 +49,7 @@ namespace Shovel.WebAPI.Abstractions.Model
                     str = str.Remove(str.Length - deletingCount);
                     var res = str.Split(',');
 
-                    filterResult.Add(res.Last(), res.First());
+                    filterResult.Add(res.Last(), res.First().Replace("'", ""));
                 }
 
                 return filterResult;

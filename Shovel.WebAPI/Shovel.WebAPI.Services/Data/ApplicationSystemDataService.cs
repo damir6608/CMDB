@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shovel.WebAPI.Abstractions.Model;
+using Shovel.WebAPI.Abstractions.Model.Response;
 using Shovel.WebAPI.DataAccess.Extensions;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Data.Interfaces;
@@ -29,32 +30,42 @@ namespace Shovel.WebAPI.Services.Data
             return applicationSystems.First();
         }
 
-        async Task<List<ApplicationSystem>> IApplicationSystemDataService.GetApplicationSystems(QueryFilterModel? queryFilter = null)
+        public async Task<List<ApplicationSystem>> GetApplicationSystems(QueryFilterModel? queryFilter = null)
         {
             DbSet<ApplicationSystem> applicationSystemsDbSet = _shovelContext.Set<ApplicationSystem>();
 
-            var data = await applicationSystemsDbSet
-                .Include(i => i.Server).ToListAsync();
+            var data = await applicationSystemsDbSet.Include(i => i.Server).ToListAsync();
 
-            if (queryFilter is not null)
+            if (queryFilter != null)
             {
-                var applicationFilter = new ApplicationSystem();
-                var filterDict = queryFilter.ParsedFilter;
-                foreach ( var filter in filterDict )
+                IEnumerable<ApplicationSystem> filteredData = data;
+                if (!string.IsNullOrWhiteSpace(queryFilter?.Filter))
                 {
-                    applicationFilter.SetPropValue(filter.Value, filter.Key);
+                    var applicationFilter = new ApplicationSystem();
+                    var filterDict = queryFilter.ParsedFilter;
+                    foreach (var filter in filterDict)
+                    {
+                        applicationFilter.SetPropValue(filter.Value, filter.Key);
+                        filteredData = data.Where(filter.Key.CreateContainsExpression<ApplicationSystem>(filter.Value).Compile());
+                    }
                 }
 
-                //if (applicationFilter.Mainwindowtitle is not null)
-                //    data = data.Where(item => item.Mainwindowtitle != null 
-                //    ? item.Mainwindowtitle.ToLower().Contains(applicationFilter.Mainwindowtitle) : false)
-                //        .ToList();
+                filteredData = filteredData.Skip(queryFilter.Skip);
+                filteredData = filteredData.Take(queryFilter.Top);
 
-                //if (applicationFilter.Processname is not null)
-                //    data = data.Where(item => item.Processname.ToLower().Contains(applicationFilter.Processname)).ToList();
+                data = filteredData.ToList();
             }
 
+
             return data;
+        }
+
+        async Task<PagedResult> IApplicationSystemDataService.GetApplicationSystemsPaged(QueryFilterModel? queryFilter = null)
+        {
+            var data = await GetApplicationSystems(queryFilter);
+            PagedResult res = new PagedResult(data);
+            res.TotalCount = data.Count;
+            return res;
         }
     }
 }

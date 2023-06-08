@@ -30,12 +30,7 @@ namespace Shovel.WebAPI.Controllers
         [ProducesResponseType(200)]
         public async Task<ActionResult<PagedResult>> GetApplications([FromQuery] QueryFilterModel queryParams)
         {
-            List<ApplicationSystem> applicationSystems = await _applicationSystemDataService.GetApplicationSystems(queryParams);
-
-            PagedResult res = new PagedResult(applicationSystems);
-            res.TotalCount = applicationSystems.Count;
-
-            return Ok(res);
+            return Ok(await _applicationSystemDataService.GetApplicationSystemsPaged(queryParams));
         }
 
         /// <summary>
