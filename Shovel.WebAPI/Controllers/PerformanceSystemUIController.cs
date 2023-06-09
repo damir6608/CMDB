@@ -24,12 +24,7 @@ namespace Shovel.WebAPI
         [ProducesResponseType(200)]
         public async Task<ActionResult<PagedResult>> GetPerformances([FromQuery] QueryFilterModel queryParams)
         {
-            List<PerformanceSystem> performanceSystems = await _performanceSystemDataService.GetPerformanceSystems();
-
-            PagedResult res = new PagedResult(performanceSystems);
-            res.TotalCount = performanceSystems.Count;
-
-            return Ok(res);
+            return Ok(await _performanceSystemDataService.GetPerformanceSystemsPaged(queryParams));
         }
 
         [HttpGet("GetPerformanceById/{id}")]

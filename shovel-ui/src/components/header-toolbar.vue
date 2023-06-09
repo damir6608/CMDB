@@ -41,7 +41,7 @@
           </div>
         </template>
       </dx-item>
-      
+
       <template #menuUserItem>
         <user-panel
           :email="email"
@@ -75,18 +75,18 @@ export default {
 
     const email = ref("");
     auth.getUser().then((e) => email.value = e.email);
-    
+
     const userMenuItems = [{
-        text: "Profile",
+        text: "Профиль",
         icon: "user",
         onClick: onProfileClick
       },
       {
-        text: "Logout",
+        text: "Выйти",
         icon: "runner",
         onClick: onLogoutClick
     }];
-      
+
     function onLogoutClick() {
       auth.logOut();
       router.push({

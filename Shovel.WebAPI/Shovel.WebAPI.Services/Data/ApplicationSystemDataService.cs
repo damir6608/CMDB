@@ -64,8 +64,15 @@ namespace Shovel.WebAPI.Services.Data
         {
             var data = await GetApplicationSystems(queryFilter);
             PagedResult res = new PagedResult(data);
-            res.TotalCount = data.Count;
+            res.TotalCount =  queryFilter.InlineCount == "allpages" ? await GetApplicationSystemsCount() : data.Count;
             return res;
+        }
+
+        private async Task<int> GetApplicationSystemsCount()
+        {
+            DbSet<ApplicationSystem> applicationSystemsDbSet = _shovelContext.Set<ApplicationSystem>();
+
+            return await applicationSystemsDbSet.CountAsync();
         }
     }
 }

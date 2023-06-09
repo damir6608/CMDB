@@ -1,30 +1,30 @@
 export default [
   {
-    text: "Home",
+    text: "Домашнаяя страница",
     path: "/home",
     icon: "home"
   },
   {
-    text: "Profile",
+    text: "Профиль",
     path: "/profile",
     icon: "card"
   },
   {
-    text: "Data",
+    text: "Данные",
     icon: "folder",
     items: [
       {
-        text: "Performance",
+        text: "Производительность",
         path: "/performance"
       },
       {
-        text: 'Application',
+        text: 'Приложения',
         path: '/application-page',
       }
     ]
   },
   {
-    text: 'Service',
+    text: 'Конфигурация',
     path: '/service-page',
     icon: 'toolbox'
   }

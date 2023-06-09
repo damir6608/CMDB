@@ -46,8 +46,17 @@ namespace Shovel.WebAPI.Abstractions.Model
                         if (reversedFilter[deletingCount] != ')')
                             break;
                     }
-                    str = str.Remove(str.Length - deletingCount);
-                    var res = str.Split(',');
+                    var res = new string[0];
+
+                    if (filter.Contains(" eq "))
+                    {
+                        res = filter.Split(" eq ").Reverse().ToArray();
+                    } 
+                    else
+                    {
+                        str = str.Remove(str.Length - deletingCount);
+                        res = str.Split(',');
+                    }
 
                     filterResult.Add(res.Last(), res.First().Replace("'", ""));
                 }
