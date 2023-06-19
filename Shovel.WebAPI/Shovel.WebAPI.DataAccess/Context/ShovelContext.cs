@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Shovel.WebAPI.DataAccess.Models.Web;
 
 namespace Shovel.WebAPI.Models;
 
-public partial class ShovelContext : DbContext
+public partial class ShovelContext : IdentityDbContext<ApplicationUser, IdentityRole<long>, long>
 {
     public ShovelContext()
     {
@@ -13,6 +16,7 @@ public partial class ShovelContext : DbContext
     public ShovelContext(DbContextOptions<ShovelContext> options)
         : base(options)
     {
+        Database.Migrate();
     }
 
     public virtual DbSet<ApplicationSystem> ApplicationSystems { get; set; }
@@ -23,22 +27,283 @@ public partial class ShovelContext : DbContext
 
     public virtual DbSet<Permission> Permissions { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    //public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<RolePermission> RolePermissions { get; set; }
 
     public virtual DbSet<Server> Servers { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    //public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserRole> UserRoles { get; set; }
+    //public virtual DbSet<UserRole> UserRoles { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseNpgsql("Host=localhost;Database=shovel;Username=postgres;Password=postgres");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=shovel;Username=postgres;Password=postgres");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<long>", b =>
+        {
+            b.Property<long>("Id")
+                .ValueGeneratedOnAdd()
+                .HasColumnType("bigint");
+
+            NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+            b.Property<string>("ConcurrencyStamp")
+                .IsConcurrencyToken()
+                .HasColumnType("text");
+
+            b.Property<string>("Name")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.Property<string>("NormalizedName")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.HasKey("Id");
+
+            b.HasIndex("NormalizedName")
+                .IsUnique()
+                .HasDatabaseName("RoleNameIndex");
+
+            b.ToTable("AspNetRoles", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
+        {
+            b.Property<int>("Id")
+                .ValueGeneratedOnAdd()
+                .HasColumnType("integer");
+
+            NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+            b.Property<string>("ClaimType")
+                .HasColumnType("text");
+
+            b.Property<string>("ClaimValue")
+                .HasColumnType("text");
+
+            b.Property<long>("RoleId")
+                .HasColumnType("bigint");
+
+            b.HasKey("Id");
+
+            b.HasIndex("RoleId");
+
+            b.ToTable("AspNetRoleClaims", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
+        {
+            b.Property<int>("Id")
+                .ValueGeneratedOnAdd()
+                .HasColumnType("integer");
+
+            NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+            b.Property<string>("ClaimType")
+                .HasColumnType("text");
+
+            b.Property<string>("ClaimValue")
+                .HasColumnType("text");
+
+            b.Property<long>("UserId")
+                .HasColumnType("bigint");
+
+            b.HasKey("Id");
+
+            b.HasIndex("UserId");
+
+            b.ToTable("AspNetUserClaims", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
+        {
+            b.Property<string>("LoginProvider")
+                .HasColumnType("text");
+
+            b.Property<string>("ProviderKey")
+                .HasColumnType("text");
+
+            b.Property<string>("ProviderDisplayName")
+                .HasColumnType("text");
+
+            b.Property<long>("UserId")
+                .HasColumnType("bigint");
+
+            b.HasKey("LoginProvider", "ProviderKey");
+
+            b.HasIndex("UserId");
+
+            b.ToTable("AspNetUserLogins", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+        {
+            b.Property<long>("UserId")
+                .HasColumnType("bigint");
+
+            b.Property<long>("RoleId")
+                .HasColumnType("bigint");
+
+            b.HasKey("UserId", "RoleId");
+
+            b.HasIndex("RoleId");
+
+            b.ToTable("AspNetUserRoles", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+        {
+            b.Property<long>("UserId")
+                .HasColumnType("bigint");
+
+            b.Property<string>("LoginProvider")
+                .HasColumnType("text");
+
+            b.Property<string>("Name")
+                .HasColumnType("text");
+
+            b.Property<string>("Value")
+                .HasColumnType("text");
+
+            b.HasKey("UserId", "LoginProvider", "Name");
+
+            b.ToTable("AspNetUserTokens", (string)null);
+        });
+
+        modelBuilder.Entity("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", b =>
+        {
+            b.Property<long>("Id")
+                .ValueGeneratedOnAdd()
+                .HasColumnType("bigint");
+
+            NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+            b.Property<int>("AccessFailedCount")
+                .HasColumnType("integer");
+
+            b.Property<string>("ConcurrencyStamp")
+                .IsConcurrencyToken()
+                .HasColumnType("text");
+
+            b.Property<string>("Email")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.Property<bool>("EmailConfirmed")
+                .HasColumnType("boolean");
+
+            b.Property<string>("FirstName")
+                .IsRequired()
+                .HasColumnType("text");
+
+            b.Property<string>("LastName")
+                .IsRequired()
+                .HasColumnType("text");
+
+            b.Property<bool>("LockoutEnabled")
+                .HasColumnType("boolean");
+
+            b.Property<DateTimeOffset?>("LockoutEnd")
+                .HasColumnType("timestamp with time zone");
+
+            b.Property<string>("MiddleName")
+                .HasColumnType("text");
+
+            b.Property<string>("NormalizedEmail")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.Property<string>("NormalizedUserName")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.Property<string>("PasswordHash")
+                .HasColumnType("text");
+
+            b.Property<string>("PhoneNumber")
+                .HasColumnType("text");
+
+            b.Property<bool>("PhoneNumberConfirmed")
+                .HasColumnType("boolean");
+
+            b.Property<string>("SecurityStamp")
+                .HasColumnType("text");
+
+            b.Property<bool>("TwoFactorEnabled")
+                .HasColumnType("boolean");
+
+            b.Property<string>("UserName")
+                .HasMaxLength(256)
+                .HasColumnType("character varying(256)");
+
+            b.HasKey("Id");
+
+            b.HasIndex("NormalizedEmail")
+                .HasDatabaseName("EmailIndex");
+
+            b.HasIndex("NormalizedUserName")
+                .IsUnique()
+                .HasDatabaseName("UserNameIndex");
+
+            b.ToTable("AspNetUsers", (string)null);
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
+        {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                .WithMany()
+                .HasForeignKey("RoleId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+        {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                .WithMany()
+                .HasForeignKey("RoleId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
         modelBuilder.Entity<ApplicationSystem>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("ApplicationSystem_pkey");
@@ -295,6 +560,59 @@ public partial class ShovelContext : DbContext
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("UserRole_userid_fkey");
         });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
+        {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                .WithMany()
+                .HasForeignKey("RoleId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+        {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
+                .WithMany()
+                .HasForeignKey("RoleId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+        {
+            b.HasOne("Shovel.WebAPI.DataAccess.Models.Web.ApplicationUser", null)
+                .WithMany()
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+        });
+
+
 
         OnModelCreatingPartial(modelBuilder);
     }
