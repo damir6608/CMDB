@@ -364,3 +364,4 @@ MigrationBackup/
 FodyWeavers.xsd
 *.xlsx
 *.db
+LiteDB/applog.db
