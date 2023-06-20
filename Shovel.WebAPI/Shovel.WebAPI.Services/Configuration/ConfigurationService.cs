@@ -31,9 +31,9 @@ namespace Shovel.WebAPI.Services.Configuration
                 {
                     client.BaseAddress = new Uri(server.Baseaddress);
 
-                    StringContent content = new StringContent(JsonConvert.SerializeObject(command), Encoding.UTF8, Application.Json);
+                    string param = $"?command={command}";
 
-                    HttpResponseMessage responce = await client.PostAsync($"Execute", content);
+                    HttpResponseMessage responce = await client.GetAsync($"Execute{param}");
                     string stringData = await responce.Content.ReadAsStringAsync();
                 }
             }

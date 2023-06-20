@@ -163,6 +163,7 @@
     <div class="content-block dx-card responsive-paddings">
         <DxDataGrid
             :data-source="logicalDrives"
+            key-expr="Id"
         >
           <DxColumn
               :width="80"
@@ -266,7 +267,7 @@ export default {
       return width < 720 ? 'sm' : 'md';
     },
     async getById(){
-      const res = await axios.get("https://localhost:7221/api/PerformanceSystemUI/GetPerformanceById/"+ this.$route.query.id);
+      const res = await axios.get("https://192.168.43.187:7221/api/PerformanceSystemUI/GetPerformanceById/"+ this.$route.query.id);
 
       this.resultData = {
         OperationSystem: res.data.operationsystem,
@@ -295,8 +296,10 @@ export default {
 
       this.server = {BaseAddress: res.data.server.baseaddress};
 
+      const logicalDriveArr = [];
       for (const logicalDrive of res.data.logicalDrives) {
-        this.logicalDrives.push({
+        logicalDriveArr.push({
+          Id: logicalDrive.id,
           AvailableFreeSpace: (logicalDrive.availablefreespace / 1024 / 1024 / 1024).toString() + ' Гб' ,
           Drive: logicalDrive.drive,
           DriveFormat: logicalDrive.driveformat,
@@ -306,9 +309,8 @@ export default {
           VolumeLabel: logicalDrive.volumelabel,
         })
       }
-
-      delete this.resultData['server'];
-      delete this.resultData['logicalDrives'];
+      this.logicalDrives = logicalDriveArr;
+      console.log(this.logicalDrives)
     },
   },
 };

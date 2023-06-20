@@ -4,7 +4,7 @@
     <div class="content-block">
       <div class="dx-card responsive-paddings">
         <form
-            action="https://localhost:7221/api/ConfigurationUI/RunCommand"
+            action="https://192.168.43.187:7221/api/ConfigurationUI/RunCommand"
             method="post"
             @submit="handleSubmit"
         >
@@ -80,7 +80,7 @@ export default {
           },
         }, 'success', 3000);
         e.preventDefault();
-        axios.post("https://localhost:7221/api/ConfigurationUI/RunCommand", e.target);
+        axios.post("https://192.168.43.187:7221/api/ConfigurationUI/RunCommand", e.target);
       console.log(e)//TODO sending command
     },
     async getUser(){

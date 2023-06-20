@@ -18,8 +18,8 @@ namespace MaintenanceService.Controllers
             _executerCommandConfigurationService = executerCommandConfigurationService;
         }
 
-        [HttpPost(Name = "Command")]
-        public async Task Get([FromBody] string command)
+        [HttpGet(Name = "Command")]
+        public async Task Get([FromQuery(Name = "command")] string command)
         {
             await _executerCommandConfigurationService.ExecuteCommand(command);
         }
