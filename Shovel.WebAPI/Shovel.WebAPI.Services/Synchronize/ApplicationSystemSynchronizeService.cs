@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Shovel.WebAPI.Models;
 using Shovel.WebAPI.Services.Synchronize.Interfaces;
+using System.Net;
 
 namespace Shovel.WebAPI.Services.Synchronize
 {
@@ -22,31 +23,37 @@ namespace Shovel.WebAPI.Services.Synchronize
             List<Server> serverSet = _shovelContext.Set<Server>().ToList();
             foreach(Server server in serverSet)
             {
-                DateTime SyncTime = DateTime.Now;
-                using (HttpClient client = _factory.CreateClient())
+                using (var handler = new HttpClientHandler())
                 {
-                    client.BaseAddress = new Uri(server.Baseaddress);
+                    // allow the bad certificate
+                    handler.ServerCertificateCustomValidationCallback = (request, cert, chain, errors) => true;
 
-                    DateTime dateByLastSync = DateTime.Now.AddHours(-2);
-                    string serDate = JsonConvert.SerializeObject(dateByLastSync);
-                    string param = $"?date={dateByLastSync}";
+                    DateTime SyncTime = DateTime.UtcNow;
+                    using (HttpClient client = new HttpClient(handler))
+                    {
+                        client.BaseAddress = new Uri(server.Baseaddress);
 
-                    HttpResponseMessage responce = await client.GetAsync($"Application{param}");
-                    string stringData = await responce.Content.ReadAsStringAsync();
-                    List<ApplicationSystem> applicationResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
+                        DateTime dateByLastSync = DateTime.UtcNow.AddHours(-2);
+                        string serDate = JsonConvert.SerializeObject(dateByLastSync);
+                        string param = $"?date={dateByLastSync}";
 
-                    applicationResult = applicationResult ?? new List<ApplicationSystem>();
+                        HttpResponseMessage responce = await client.GetAsync($"Application{param}");
+                        string stringData = await responce.Content.ReadAsStringAsync();
+                        List<ApplicationSystem> applicationResult = JsonConvert.DeserializeObject<List<ApplicationSystem>>(stringData);
 
-                    DbSet<ApplicationSystem> show = _shovelContext.Set<ApplicationSystem>();
+                        applicationResult = applicationResult ?? new List<ApplicationSystem>();
 
-                    applicationResult.ForEach(i => { i.Synctime = SyncTime; i.Serverid = server.Id; });
+                        DbSet<ApplicationSystem> show = _shovelContext.Set<ApplicationSystem>();
 
-                    show.AddRange(applicationResult);
+                        applicationResult.ForEach(i => { i.Synctime = SyncTime; i.Serverid = server.Id; });
 
-                    _shovelContext.SaveChanges();
+                        show.AddRange(applicationResult);
+
+                        _shovelContext.SaveChanges();
 
 
-                    perfrormance.AddRange(applicationResult);
+                        perfrormance.AddRange(applicationResult);
+                    }
                 }
             }
             return perfrormance.ToList();

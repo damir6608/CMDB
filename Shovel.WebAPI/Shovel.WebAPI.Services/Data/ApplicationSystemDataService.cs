@@ -50,9 +50,6 @@ namespace Shovel.WebAPI.Services.Data
                     }
                 }
 
-                filteredData = filteredData.Skip(queryFilter.Skip);
-                filteredData = filteredData.Take(queryFilter.Top);
-
                 data = filteredData.ToList();
             }
 
@@ -63,8 +60,13 @@ namespace Shovel.WebAPI.Services.Data
         async Task<PagedResult> IApplicationSystemDataService.GetApplicationSystemsPaged(QueryFilterModel? queryFilter = null)
         {
             var data = await GetApplicationSystems(queryFilter);
+            var dataCount = data.Count();
+
+            data = data.Skip(queryFilter.Skip).ToList();
+            data = data.Take(queryFilter.Top).ToList();
+
             PagedResult res = new PagedResult(data);
-            res.TotalCount =  queryFilter.InlineCount == "allpages" ? await GetApplicationSystemsCount() : data.Count;
+            res.TotalCount = queryFilter?.ParsedFilter.Count == 0 ? await GetApplicationSystemsCount() : dataCount;
             return res;
         }
 

@@ -57,9 +57,6 @@ namespace Shovel.WebAPI.Services.Data
                     }
                 }
 
-                filteredData = filteredData.Skip(queryFilter.Skip);
-                filteredData = filteredData.Take(queryFilter.Top + 1);
-
                 data = filteredData.ToList();
             }
 
@@ -70,8 +67,13 @@ namespace Shovel.WebAPI.Services.Data
         async Task<PagedResult> IPerformanceSystemDataService.GetPerformanceSystemsPaged(QueryFilterModel? queryFilter = null)
         {
             var data = await GetPerformanceSystems(queryFilter);
+            var dataCount = data.Count();
+
+            data = data.Skip(queryFilter.Skip).ToList();
+            data = data.Take(queryFilter.Top).ToList();
+
             PagedResult res = new PagedResult(data);
-            res.TotalCount =  queryFilter.InlineCount == "allpages" ? await GetPerformanceSystemsCount() : data.Count;
+            res.TotalCount = queryFilter?.ParsedFilter.Count == 0 ? await GetPerformanceSystemsCount() : dataCount;
             return res;
         }
 

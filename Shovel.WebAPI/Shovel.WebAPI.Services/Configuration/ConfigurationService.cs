@@ -5,6 +5,9 @@ using Shovel.WebAPI.Services.Configuration.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -27,14 +30,28 @@ namespace Shovel.WebAPI.Services.Configuration
             List<Server> serverSet = _shovelContext.Set<Server>().ToList();
             foreach (var server in serverSet)
             {
-                using (HttpClient client = _factory.CreateClient())
+                using (var handler = new HttpClientHandler())
                 {
-                    client.BaseAddress = new Uri(server.Baseaddress);
+                    // allow the bad certificate
+                    handler.ServerCertificateCustomValidationCallback = (request, cert, chain, errors) => true;
 
-                    string param = $"?command={command}";
+                    using (HttpClient client = new HttpClient(handler))
+                    {
+                        try
+                        {
+                            client.BaseAddress = new Uri(server.Baseaddress);
 
-                    HttpResponseMessage responce = await client.GetAsync($"Execute{param}");
-                    string stringData = await responce.Content.ReadAsStringAsync();
+                            string param = $"?command={command}";
+                            HttpRequestMessage requestMsg = new HttpRequestMessage(HttpMethod.Get, param);
+
+                            HttpResponseMessage responce = await client.GetAsync($"Execute{param}");
+                            string stringData = await responce.Content.ReadAsStringAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
                 }
             }
         }

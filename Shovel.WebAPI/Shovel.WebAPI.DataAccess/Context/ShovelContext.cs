@@ -16,7 +16,7 @@ public partial class ShovelContext : IdentityDbContext<ApplicationUser, Identity
     public ShovelContext(DbContextOptions<ShovelContext> options)
         : base(options)
     {
-        Database.Migrate();
+
     }
 
     public virtual DbSet<ApplicationSystem> ApplicationSystems { get; set; }
