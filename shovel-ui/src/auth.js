@@ -14,7 +14,7 @@ export default {
   async logIn(email, password) {
     try {
       // Send request
-      const res = await axios.get("https://192.168.43.187:7221/api/AuthUI/LogIn/" + email + "/" + password);
+      const res = await axios.get("https://localhost:7221/api/AuthUI/LogIn/" + email + "/" + password);
       console.log(email, password);
       this._user = res.data;
       console.log(this._user)

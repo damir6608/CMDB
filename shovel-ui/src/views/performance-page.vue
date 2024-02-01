@@ -141,7 +141,7 @@ export default {
     },
     onClick() {
       axios({
-        url: 'https://192.168.43.187:7221/api/PerformanceSystemUI/GetReport',
+        url: 'https://localhost:7221/api/PerformanceSystemUI/GetReport',
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {
@@ -164,7 +164,7 @@ export default {
       store: {
          type: "odata",
          key: "id",
-        url: "https://192.168.43.187:7221/api/PerformanceSystemUI/GetAll"
+        url: "https://localhost:7221/api/PerformanceSystemUI/GetAll"
       },
     };
     return {

@@ -100,7 +100,7 @@ export default {
     },
     onClick() {
       axios({
-        url: 'https://192.168.43.187:7221/api/ApplicationSystemUI/GetReport',
+        url: 'https://localhost:7221/api/ApplicationSystemUI/GetReport',
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {
@@ -123,7 +123,7 @@ export default {
       store: {
         type: "odata",
         key: "id",
-        url: "https://192.168.43.187:7221/api/ApplicationSystemUI/GetAll"
+        url: "https://localhost:7221/api/ApplicationSystemUI/GetAll"
       },
       // expand: "ApplicationSystem"
     };

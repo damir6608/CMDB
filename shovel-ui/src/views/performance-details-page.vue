@@ -267,7 +267,7 @@ export default {
       return width < 720 ? 'sm' : 'md';
     },
     async getById(){
-      const res = await axios.get("https://192.168.43.187:7221/api/PerformanceSystemUI/GetPerformanceById/"+ this.$route.query.id);
+      const res = await axios.get("https://localhost:7221/api/PerformanceSystemUI/GetPerformanceById/"+ this.$route.query.id);
 
       this.resultData = {
         OperationSystem: res.data.operationsystem,
